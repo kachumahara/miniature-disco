@@ -32,14 +32,8 @@
   border-radius: 15px;
   box-shadow: 0 9px #999;
     right: -3vh;
-      position: absolute;
-      bottom: -35vh;
+      position: relative;
   }
 
-  #close:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
 
   
