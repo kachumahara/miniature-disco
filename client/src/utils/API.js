@@ -15,30 +15,30 @@ export default {
   },
 
   getTasks: function () {
-    return axios.get("/api/tasks");
+    return axios.get("/api/task");
   },
 
   getTask: function (id) {
-    return axios.get("/api/tasks/" + id);
+    return axios.get("/api/task/" + id);
   },
 
   deleteTasks: function (id) {
-    return axios.delete("/api/tasks/" + id);
+    return axios.delete("/api/task/" + id);
   },
 
   createTask: function (taskData) {
-    return axios.post("/api/tasks" + taskData);
+    return axios.post("/api/task" + taskData);
   },
 
   getDeadlines: function () {
-    return axios.get("/api/deadlines");
+    return axios.get("/api/deadline");
   },
 
   updateDeadlines: function (id) {
-    return axios.put("/api/deadlines/" + id);
+    return axios.put("/api/deadline/" + id);
   },
 
   deleteDeadline: function (id) {
-    return axios.delete("/api/deadlines/" + id);
+    return axios.delete("/api/deadline/" + id);
   },
 };
