@@ -14,6 +14,7 @@ import Home from "./views/Home";
 
 import Popup from "./components/popup";
 import logo from "./components/images/logo7.png";
+import DragNDrop from "./components/DragNDrop";
 
 function App() {
   const { user } = useAuth0();
