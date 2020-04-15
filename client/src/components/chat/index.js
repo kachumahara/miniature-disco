@@ -53,14 +53,7 @@ class Chat extends React.Component {
         return (
             <div id='chat'>
                 <div id='grid-container'>
-
-                    <input type='text' placeholder='message here'
-                        onKeyUp={
-                            this.sendMessage
-                        }/>
-                </div>
-                <div id='grid-containe2'>
-                    <ul id='messages'>
+                <ul id='messages'>
                         {
                         this.state.messages.map((message) => {
                             return (
@@ -74,6 +67,16 @@ class Chat extends React.Component {
                             )
                         })
                     } </ul>
+                    
+                </div>
+                <div id='grid-containe2'>
+                <input type='text' placeholder='message here'
+                        onKeyUp={
+                            this.sendMessage
+                        }
+                        value ={this.value}
+                        />
+                    
                 </div>
             </div>
         );
