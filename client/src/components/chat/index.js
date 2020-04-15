@@ -19,13 +19,20 @@ class Chat extends React.Component {
 
         this.socket = io('https://6056e275.ngrok.io')
         this.socket.on('message', (message) => {
-            this.setState({messages: [message, ...this.state.messages]})
-              })
+            this.setState({
+                messages: [
+                    message,
+                    ...this.state.messages
+                ]
+            })
+        })
     }
 
     sendMessage(event) {
 
+
         const body = event.target.value
+        this.state.value = ""
         if (event.keyCode === 13 && body) {
             let message = {
                 body,
@@ -37,29 +44,38 @@ class Chat extends React.Component {
                     ...this.state.messages
                 ]
             })
-            this.socket.emit('message', message)
         }
+
     }
 
 
     render() {
         return (
-        <div id='chat'>
-            <div id='grid-container'>
-            
-                <input type='text' placeholder='message here' onKeyUp={this.sendMessage}/>
-                </div>
-            <ul id='grid-containe2'>
+            <div id='chat'>
+                <div id='grid-container'>
 
-            {
-                this.state.messages.map((message) => {
-                    return (
-                        <li id='messages' id='chats'>{message.body} from-{message.from}</li>
-                    )
-                })
-            }
-            </ul>
+                    <input type='text' placeholder='message here'
+                        onKeyUp={
+                            this.sendMessage
+                        }/>
                 </div>
+                <div id='grid-containe2'>
+                    <ul id='messages'>
+                        {
+                        this.state.messages.map((message) => {
+                            return (
+                                <li id='messages' id='chats'>
+                                    {
+                                    message.body
+                                }
+                                    from-{
+                                    message.from
+                                }</li>
+                            )
+                        })
+                    } </ul>
+                </div>
+            </div>
         );
     }
 }
