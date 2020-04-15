@@ -5,7 +5,7 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Input, TextArea, FormBtn } from "../../components/Form/index";
 
-function AddProject() {
+function AddTask() {
   //   const { isAuthenticated, user } = useAuth0();
 
 //   components initial state
@@ -21,9 +21,9 @@ function AddProject() {
 // when form is submitted use API.saveProject method to save project data
     function handleFormSubmit(e){
         e.preventDefault();
-        if(formObject.project && formObject.description) {
-            API.createProject({
-                project: formObject.project,
+        if(formObject.title && formObject.description) {
+            API.createTask({
+                title: formObject.title,
                 description: formObject.description
             })
             .catch(err => console.log(err));
@@ -34,7 +34,7 @@ function AddProject() {
     <div className="container mt-4">
       <div className="row">
         <div className="col">
-          <h1>Add a New Project</h1>
+          <h1>Add a New Task</h1>
         </div>
       </div>
       <div className="row">
@@ -42,20 +42,20 @@ function AddProject() {
           <form>
             <Input
               onChange={handleInputChange}
-              name="project"
-              placeholder="project (required)"
+              name="title"
+              placeholder="Task Title (required)"
             />
             <TextArea
               onChange={handleInputChange}
               name="description"
-              placeholder="Description (required)"
+              placeholder="Description of Task (required)"
             />
             <FormBtn><Link to={"/"}>Done</Link></FormBtn>
             <FormBtn
-            disabled={!(formObject.project && formObject.description)}
+            disabled={!(formObject.title && formObject.description)}
             onClick={handleFormSubmit}
             >
-              Save Project
+              Save Task
             </FormBtn>
           </form>
         </div>
@@ -66,4 +66,4 @@ function AddProject() {
 
 /* {isAuthenticated && <p>{JSON.stringify(user, null, 2)}</p>} */
 
-export default AddProject;
+export default AddTask;

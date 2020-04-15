@@ -11,9 +11,9 @@ export function Input(props) {
 export function TextArea(props) {
     return (
         <div className="form-group">
-            <textarea 
+            <textarea
             className="form-control"
-            rows="20" {...props} />
+            rows="10" {...props} />
         </div>
     )
 }

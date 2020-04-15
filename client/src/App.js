@@ -11,7 +11,7 @@ import Navbar from "./common/Navbar";
 
 // Views
 import Home from "./views/Home";
-import AddProject from "./views/AddProject/AddProject";
+import AddTask from "./views/AddTask/AddTask";
 
 import Popup from "./components/popup";
 import logo from "./components/images/logo7.png";
@@ -26,7 +26,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/addproject" component={AddProject} />
+        <Route exact path="/tasks/add" component={AddTask} />
       </Switch>
     </Router>
   );
