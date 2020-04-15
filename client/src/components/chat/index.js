@@ -17,7 +17,9 @@ class Chat extends React.Component {
 
     componentDidMount() {
 
-        this.socket = io('https://6056e275.ngrok.io')
+        // this.socket = io('https://6056e275.ngrok.io')
+        this.socket = io('http://localhost:5000')
+
         this.socket.on('message', (message) => {
             this.setState({
                 messages: [
@@ -53,6 +55,16 @@ class Chat extends React.Component {
         return (
             <div id='chat'>
                 <div id='grid-container'>
+                <input type='text' placeholder='message here'
+                        onKeyUp={
+                            this.sendMessage
+                        }
+                        value ={this.value}
+                        />
+                
+                    
+                </div>
+                <div id='grid-containe2'>
                 <ul id='messages'>
                         {
                         this.state.messages.map((message) => {
@@ -67,15 +79,6 @@ class Chat extends React.Component {
                             )
                         })
                     } </ul>
-                    
-                </div>
-                <div id='grid-containe2'>
-                <input type='text' placeholder='message here'
-                        onKeyUp={
-                            this.sendMessage
-                        }
-                        value ={this.value}
-                        />
                     
                 </div>
             </div>

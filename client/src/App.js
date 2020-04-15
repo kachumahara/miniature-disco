@@ -12,8 +12,8 @@ import Navbar from "./common/Navbar";
 // Views
 import Home from "./views/Home";
 
-import Popup from "./components/popup";
-import logo from "./components/images/logo7.png";
+// import Popup from "./components/popup";
+// import logo from "./components/images/logo7.png";
 
 function App() {
   const { user } = useAuth0();
