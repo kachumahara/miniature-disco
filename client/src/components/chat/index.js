@@ -2,6 +2,8 @@ import React from 'react';
 import './style.css';
 
 import io from "socket.io-client";
+import {useAuth0} from "../../utils/auth0Provider";
+
 
 class Chat extends React.Component {
 
@@ -15,9 +17,7 @@ class Chat extends React.Component {
         this.sendMessage = this.sendMessage.bind(this)
     }
 
-    componentDidMount() {
-
-        // this.socket = io('https://6056e275.ngrok.io')
+    componentDidMount() { // this.socket = io('https://6056e275.ngrok.io')
         this.socket = io('http://localhost:5000')
 
         this.socket.on('message', (message) => {
@@ -38,7 +38,7 @@ class Chat extends React.Component {
         if (event.keyCode === 13 && body) {
             let message = {
                 body,
-                from: 'shyaboi'
+                from: 'Chat-Gang'
             }
             this.setState({
                 messages: [
@@ -46,8 +46,31 @@ class Chat extends React.Component {
                     ...this.state.messages
                 ]
             })
+            this.socket.emit('message', message)
+
         }
 
+    }
+    render() {
+        return (
+            <div>
+                <input type='text' placeholder='message here'
+                    onKeyUp={
+                        this.sendMessage
+                    }/> {
+                this.state.messages.map((message) => {
+                    return (
+                        <li id='chats'>
+                            {
+                            message.body
+                        }
+                            -Made By-{
+                            message.from
+                        }</li>
+                    )
+                })
+            } </div>
+        );
     }
 
 
@@ -55,21 +78,21 @@ class Chat extends React.Component {
         return (
             <div id='chat'>
                 <div id='grid-container'>
-                <input type='text' placeholder='message here'
+                    <input type='text' placeholder='message here'
                         onKeyUp={
                             this.sendMessage
                         }
-                        value ={this.value}
-                        />
-                
-                    
+                        value
+                        ={this.value}/>
+
+
                 </div>
                 <div id='grid-containe2'>
-                <ul id='messages'>
+                    <ul id='messages'>
                         {
                         this.state.messages.map((message) => {
                             return (
-                                <li id='messages' id='chats'>
+                                <li id='chats'>
                                     {
                                     message.body
                                 }
@@ -79,7 +102,7 @@ class Chat extends React.Component {
                             )
                         })
                     } </ul>
-                    
+
                 </div>
             </div>
         );
