@@ -24,9 +24,11 @@ function App() {
   return (
     <Router history={history}>
       <Navbar />
+
       <Switch>
         <Route exact path="/" component={Home} />
       </Switch>
+      <DragNDrop />
     </Router>
   );
 }

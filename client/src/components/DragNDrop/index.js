@@ -14,11 +14,12 @@ uuidv4();
 
 function DragNDrop() {
   /// using UUID, how to integrate that to backend(Mongodb). These are the projects(items) we are going to drag around.
+
+  //// ajax call to retrieve data from seed
   const itemsFromBackEnd = [
-    { id: uuid(), content: "test one" },
-    { id: uuid(), content: "test two" },
-    { id: uuid(), content: "test three" },
-    { id: uuid(), content: "test four" },
+    { id: uuid(), content: "" },
+    { id: uuid(), content: "" },
+  
   ];
 
   /// Creating Columns for Task columns
@@ -90,6 +91,7 @@ function DragNDrop() {
           return (
             <div
               style={{
+                key: "index",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
