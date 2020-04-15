@@ -1,85 +1,67 @@
-import React from "react";
-import "./style.css";
-// import ReactDOM from 'react-dom'
+import React from 'react';
+import './style.css';
 
+import io from "socket.io-client";
 
 class Chat extends React.Component {
-    constructor(props) {
-        super(props);
+
+    constructor() {
+        super()
 
         this.state = {
-            value: '',
-            toDoList: ['Previous Chat']
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
-    handleSubmit(event) {
-        if (this.state.value === '') {
-            alert('Put some words in the box son')
-            return
+            messages: []
         }
 
-
-        const itemsArray = this.state.value.split(',');
-        this.setState({toDoList: itemsArray});
-        var items = this.state.toDoList.concat(itemsArray);
-        this.setState({toDoList: items})
-        event.preventDefault();
-        this.state.value = ""
+        this.sendMessage = this.sendMessage.bind(this)
     }
 
-    // componentDidUpdate() {
-    //     const element = document.getElementById('li');
+    componentDidMount() {
 
-    //     element.scrollIntoView({behavior: 'smooth'});
-    // }
+        this.socket = io('https://6056e275.ngrok.io')
+        this.socket.on('message', (message) => {
+            this.setState({messages: [message, ...this.state.messages]})
+              })
+    }
+
+    sendMessage(event) {
+
+        const body = event.target.value
+        if (event.keyCode === 13 && body) {
+            let message = {
+                body,
+                from: 'shyaboi'
+            }
+            this.setState({
+                messages: [
+                    message,
+                    ...this.state.messages
+                ]
+            })
+            this.socket.emit('message', message)
+        }
+    }
+
 
     render() {
-
-        console.log(this.state.toDoList)
-        const items = this.state.toDoList.map((item) => <li id='chats'>
-            {item}</li>);
-
         return (
-            <div id='chat'>
-                <div id='grid-container'>
-                    <label>
-
-                        <form onSubmit={
-                            this.handleSubmit
-                        }>
-                            <input type="text"
-                                value={
-                                    this.state.value
-                                }
-                                onChange={
-                                    this.handleChange
-                                }/>
-                                <button type='submit' id='butt'>chat</button>
-                        </form>
-                        <div></div>
-                        
-                    </label>
-                    {/* <button id='close'
-                        onClick={
-                            this.props.closePopup
-                    }>close me</button> */} </div>
-                <div id='grid-containe2'>
-                    <ul id='messages'>
-                        {items}</ul>
+        <div id='chat'>
+            <div id='grid-container'>
+            
+                <input type='text' placeholder='message here' onKeyUp={this.sendMessage}/>
                 </div>
-            </div>
-        );
+            <ul id='grid-containe2'>
 
+            {
+                this.state.messages.map((message) => {
+                    return (
+                        <li id='messages' id='chats'>{message.body} from-{message.from}</li>
+                    )
+                })
+            }
+            </ul>
+                </div>
+        );
     }
 }
-
 
 export default Chat;
