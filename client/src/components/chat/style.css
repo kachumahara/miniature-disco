@@ -7,8 +7,7 @@ input { grid-area: i; }
 #grid-container {
   display: grid;
   grid-template-areas:
-    'i i i i i i '
-    'b b b b b b ';
+    'i';
   grid-gap: 10px;
   padding: 10px;
 }
@@ -24,6 +23,7 @@ input { grid-area: i; }
 }
 
 #chat {
+  text-align: center;
   grid-auto-rows: auto;
   grid-template-columns: 40px 50px auto 50px 40px;
   grid-template-rows: 25% 100px auto;
@@ -46,10 +46,13 @@ input { grid-area: i; }
     font-size: calc(3vh + .5vmin);
   }
   input{
-
+    word-wrap: normal;
+    font-size:  calc(2vh + 1vmin);
+    height: 5vh;
+    float: left;
+    width: 55%;
     margin: 1vh;
     padding: 1vh;
-    float: left;
     position: relative;
   }
   #butt {
@@ -98,14 +101,13 @@ input { grid-area: i; }
     font-size: 2vh;
     text-align: center;
     position: relative;
-    font-size: calc(1.5vh + .5vmin);
   }
 
  #chats {
    outline-color: #3e8e41;
    outline-width: 2vh;
 outline: groove;
-  font-size: calc(1.5vh + .5vmin);
+  font-size: calc(1.1vh + .5vmin);
    max-width: 25vh;
     word-wrap: break-word;
     border-radius: 35%;

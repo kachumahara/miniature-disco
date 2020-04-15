@@ -14,8 +14,8 @@ import Home from "./views/Home";
 import AddTask from "./views/AddTask/AddTask";
 // import Project from "./views/Project";
 
-import Popup from "./components/popup";
-import logo from "./components/images/logo7.png";
+// import Popup from "./components/popup";
+// import logo from "./components/images/logo7.png";
 
 function App() {
   return (
