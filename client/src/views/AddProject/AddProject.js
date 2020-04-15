@@ -18,7 +18,7 @@ function AddProject() {
         setFormObject({... formObject, [name]: value})
     };
 
-// when form is submitted use API.saveProject method to save book data
+// when form is submitted use API.saveProject method to save project data
     function handleFormSubmit(e){
         e.preventDefault();
         if(formObject.project && formObject.description) {
