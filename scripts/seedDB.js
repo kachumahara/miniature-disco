@@ -44,7 +44,10 @@ db.Project.remove({})
   .then(() => db.Project.collection.insertMany(projectSeed))
   .then((data) => {
     console.log(data.result.n + " records inserted!");
+<<<<<<< HEAD
     
+=======
+>>>>>>> 2f485d965a5b03ba97006c302bcb8c383a3699d4
   })
   .catch((err) => {
     console.error(err);
