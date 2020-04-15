@@ -96,6 +96,8 @@ class Chat extends React.Component {
                                     {
                                     message.body
                                 }
+                                    {' '}
+                                    <span></span>
                                     from-{
                                     message.from
                                 }</li>
