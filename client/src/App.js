@@ -11,20 +11,18 @@ import Navbar from "./common/Navbar";
 
 // Views
 import Home from "./views/Home";
+import Project from "./views/Project";
 
 // import Popup from "./components/popup";
 // import logo from "./components/images/logo7.png";
 
 function App() {
-  const { user } = useAuth0();
-
-  console.log(user);
-
   return (
     <Router history={history}>
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/project" component={Project} />
       </Switch>
     </Router>
   );
