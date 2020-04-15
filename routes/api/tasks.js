@@ -8,7 +8,7 @@ router
 
 // matches with /api/tasks/add
 router
-  .route("/tasks/add")
+  .route("/add")
   .post(taskController.create);
 
 // Matches with "/api/tasks/:id"
