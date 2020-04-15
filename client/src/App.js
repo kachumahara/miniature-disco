@@ -13,8 +13,8 @@ import Navbar from "./common/Navbar";
 import Home from "./views/Home";
 import Project from "./views/Project";
 
-import Popup from "./components/popup";
-import logo from "./components/images/logo7.png";
+// import Popup from "./components/popup";
+// import logo from "./components/images/logo7.png";
 
 function App() {
   return (
