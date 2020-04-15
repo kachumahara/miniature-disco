@@ -5,7 +5,7 @@ import App from "./App";
 import { Auth0Provider } from "./utils/auth0Provider";
 import config from "./auth_config.json";
 import history from "./utils/history";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const onRedirectCallback = (appState) => {
   history.push(
