@@ -27,38 +27,48 @@ function DragNDrop() {
   function loadTasks() {
     API.getTasks()
       .then((res) => {
-        // console.log(res);
-
         setTasks(res.data);
+        setColumns({
+          ["done"]: {
+            ...columns["done"],
+            tasks: res.data.filter(task => task.status === "done")
+          },
+          ["in-progress"]:{
+            ...columns["in-progress"],
+            tasks: res.data.filter(task => task.status === "in-progress")
+          },
+          ["to-do"]:{
+            ...columns["to-do"],
+            tasks: res.data.filter(task => task.status === "to-do")
+          }
+        })
       })
       .catch((err) => console.log(err));
   }
   console.log(tasks);
   // TO DO: STRUCTURE THE RES(data), making a const and function for ItemsFrom back end and columesfrom back end.
 
- 
-
   // /// Creating Columns for tasks columns
   // // moving the tasks seed to columns
   const columnsFromBackend = {
-   
-      [uuid()]: {
-        name: "Requested",
-        items: itemsFromBackEnd,
-      },
-      [uuid()]: {
-        name: "To Do",
-        items: [],
-      },
-      [uuid()]: {
-        name: "In Progress",
-        items: [],
-      },
-      [uuid()]: {
-        name: "Done",
-        items: [],
-      },
-    
+    ["to-do"]: {
+      status: "to-do",
+      title:"To do",
+      description: "Tasks to perform",
+      tasks: []
+    },
+    ["in-progress"]: {
+      status: "in-progress",
+      title: "In Progress",
+      description: "Stuff I'm working on",
+      tasks: []
+    },
+    ["done"]: {
+      status: "done",
+      title: [],
+      description: [],
+      tasks: []
+    },
   };
   // Drag functions
   const onDragEnd = (result, columns, setColumns) => {
@@ -67,31 +77,31 @@ function DragNDrop() {
     if (source.droppableId !== destination.droppableId) {
       const sourceColumn = columns[source.droppableId];
       const destColumn = columns[destination.droppableId];
-      const sourceItems = [...sourceColumn.items];
-      const destItems = [...destColumn.items];
+      const sourceItems = [...sourceColumn.tasks];
+      const destItems = [...destColumn.tasks];
       const [removed] = sourceItems.splice(source.index, 1);
       destItems.splice(destination.index, 0, removed);
       setColumns({
         ...columns,
         [source.droppableId]: {
           ...sourceColumn,
-          items: sourceItems,
+          tasks: sourceItems,
         },
         [destination.droppableId]: {
           ...destColumn,
-          items: destItems,
+          tasks: destItems,
         },
       });
     } else {
       const column = columns[source.droppableId];
-      const copiedItems = [...column.items];
+      const copiedItems = [...column.tasks];
       const [removed] = copiedItems.splice(source.index, 1);
       copiedItems.splice(destination.index, 0, removed);
       setColumns({
         ...columns,
         [source.droppableId]: {
           ...column,
-          items: copiedItems,
+          tasks: copiedItems,
         },
       });
     }
@@ -101,6 +111,8 @@ function DragNDrop() {
 
   const [columns, setColumns] = useState(columnsFromBackend);
 
+  console.log("Columns", columns);
+
   return (
     <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
       <DragDropContext
@@ -108,7 +120,7 @@ function DragNDrop() {
       >
         {Object.entries(columns).map(([id, column]) => {
           return (
-            <div 
+            <div
               style={{
                 key: "index",
                 display: "flex",
@@ -120,6 +132,7 @@ function DragNDrop() {
               <div style={{ margin: 8 }}>
                 <Droppable droppableId={id} key={id}>
                   {(provided, snapshot) => {
+                
                     return (
                       <div
                         {...provided.droppablePorps}
@@ -133,12 +146,12 @@ function DragNDrop() {
                           minHeight: 500,
                         }}
                       >
-                        {column.items.map((item, index) => {
-                          console.log(item)
+                        {column.tasks.map((task, index) => {
+                          console.log(task);
                           return (
                             <Draggable
-                              key={item.id}
-                              draggableId={item.id}
+                              key={task._id}
+                              draggableId={task._id}
                               index={index}
                             >
                               {(provided, snapshot) => {
@@ -159,7 +172,7 @@ function DragNDrop() {
                                       ...provided.draggableProps.style,
                                     }}
                                   >
-                                    {item.content}
+                                    {task.content}
                                   </div>
                                 );
                               }}
