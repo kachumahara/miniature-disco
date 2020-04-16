@@ -5,38 +5,52 @@
 // Droppable are the colummns
 // Draggable are items to drag
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
-import uuid from "uuid/v4";
-const { v4: uuidv4 } = require("uuid");
-uuidv4();
+import API from "./utils/API";
+// import uuid from "uuid/v4";
+// const { v4: uuidv4 } = require("uuid");
+// uuidv4();
 
 function DragNDrop() {
   /// using UUID, how to integrate that to backend(Mongodb). These are the projects(items) we are going to drag around.
 
-  //// ajax call to retrieve data from seed
-  const itemsFromBackEnd = [
-    { id: uuid(), content: "" },
-    { id: uuid(), content: "" },
-  
-  ];
+  //// ajax call to retrieve data from seed (Task)
+
+  const [tasks, setTasks] = useState([])
+  const [formObject, setFornObject] = useState({})
+
+  // Load all task and store
+
+  useEffect(() => {
+    loadTasks()
+  }, [])
+
+  function loadTasks(){
+    API.getTasks()
+    .then(res => setTasks(res.data))
+    .catch(err => console.log(err))
+
+  };
+
 
   /// Creating Columns for Task columns
+  // moving the task seed to columns
   const columnsFromBackend = {
-    [uuid()]: {
+    [id()]: {
       name: "Requested",
       items: itemsFromBackEnd,
     },
-    [uuid()]: {
+
+      [id()]: {
       name: "To Do",
       items: [],
     },
-    [uuid()]: {
+     [id()]: {
       name: "In Progress",
       items: [],
     },
-    [uuid()]: {
+    [id()]: {
       name: "Done",
       items: [],
     },
