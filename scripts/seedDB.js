@@ -25,6 +25,16 @@ const taskSeed = [
   },
 ];
 
+// db.Project.remove({})
+//   .then(() => db.Project.collection.insertMany(projectSeed))
+//   .then((data) => {
+//     console.log(data.result.n + " records inserted!");
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     process.exit(1);
+//   });
+
 db.Task.remove({})
   .then(() => db.Task.collection.insertMany(taskSeed))
   .then((data) => {
