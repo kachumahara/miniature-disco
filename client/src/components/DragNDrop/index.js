@@ -7,7 +7,7 @@
 
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import API from "./utils/API";
+import API from "../../utils/API";
 // import uuid from "uuid/v4";
 // const { v4: uuidv4 } = require("uuid");
 // uuidv4();
@@ -18,43 +18,57 @@ function DragNDrop() {
   //// ajax call to retrieve data from seed (Task)
 
   const [tasks, setTasks] = useState([])
-  const [formObject, setFornObject] = useState({})
+  const [formObject, setFormObject] = useState({})
 
   // Load all task and store
+  const itemsFromBackEnd = [
+    
+  
+  ];
 
   useEffect(() => {
     loadTasks()
   }, [])
 
-  function loadTasks(){
+  function loadTasks(tasks){
+    
     API.getTasks()
-    .then(res => setTasks(res.data))
+    .then(res => {
+      console.log(res)
+      setTasks(res.data)
+      itemsFromBackEnd = [
+    
+  
+      ];
+
+    })
     .catch(err => console.log(err))
 
   };
 
-
+ 
+  
   /// Creating Columns for Task columns
   // moving the task seed to columns
-  const columnsFromBackend = {
-    [id()]: {
-      name: "Requested",
-      items: itemsFromBackEnd,
-    },
-
-      [id()]: {
-      name: "To Do",
-      items: [],
-    },
-     [id()]: {
-      name: "In Progress",
-      items: [],
-    },
-    [id()]: {
-      name: "Done",
-      items: [],
-    },
-  };
+//   const columnsFromBackend = {
+//     [id()]: {
+//       name: "Requested",
+//       items: itemsFromBackEnd,
+//     },
+// }
+  //     [id()]: {
+  //     name: "To Do",
+  //     items: [],
+  //   },
+  //    [id()]: {
+  //     name: "In Progress",
+  //     items: [],
+  //   },
+  //   [id()]: {
+  //     name: "Done",
+  //     items: [],
+  //   },
+  // };
   // Drag functions
   const onDragEnd = (result, columns, setColumns) => {
     if (!result.destination) return;
@@ -94,7 +108,7 @@ function DragNDrop() {
 
   // The DragDropContext (Container) has children (Droppable (OnDrag) and Draggable). Its the wrapper
 
-  const [columns, setColumns] = useState(columnsFromBackend);
+  const [columns, setColumns] = useState(tasks);
 
   return (
     <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
