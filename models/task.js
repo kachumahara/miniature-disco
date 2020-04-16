@@ -2,11 +2,9 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const taskSchema = new Schema({
-  name: String,
-  assigned_to: String,
+const TaskSchema = new Schema({
+  title: String,
   description: String,
-  priority: String,
   due_date: {
     type: Date,
     default: Date.now,
@@ -14,9 +12,9 @@ const taskSchema = new Schema({
   status: {
     type: String,
     default: "to-do",
-  },
+  }
 });
 
-const Task = mongoose.model("Task", taskSchema);
+const Task = mongoose.model("Task", TaskSchema);
 
 module.exports = Task;

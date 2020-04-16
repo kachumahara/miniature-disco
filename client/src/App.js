@@ -11,10 +11,11 @@ import Navbar from "./common/Navbar";
 
 // Views
 import Home from "./views/Home";
-import Project from "./views/Project";
+import AddTask from "./views/AddTask/AddTask";
+// import Project from "./views/Project";
 
-import Popup from "./components/popup";
-import logo from "./components/images/logo7.png";
+// import Popup from "./components/popup";
+// import logo from "./components/images/logo7.png";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/project" component={Project} />
+        <Route exact path="/tasks/add" component={AddTask} />
+        {/* <Route path="/project" component={Project} /> */}
       </Switch>
     </Router>
   );
