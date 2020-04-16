@@ -8,7 +8,8 @@ function Home() {
     <div>
       <h1>Welcome Home!</h1>
       {isAuthenticated && <p>{JSON.stringify(user, null, 2)}</p>}
-      <button><Link to={"/tasks/add"}>Add a Task</Link></button>
+      {/* <div><Link to={"/tasks/add"}>Add a Task</Link></div> */}
+    <Link to={"/tasks/add"}><button>Add a Task</button></Link>
     </div>
   );
 }

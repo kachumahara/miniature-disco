@@ -7,36 +7,21 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/strategyscope"
 );
 
-const projectSeed = [
-  {
-    project: "test one",
-    description: "this is a test project",
-    dueDate: "2020-04-20",
-  },
-  {
-    project: "test two",
-    description: "this is a test project",
-    dueDate: "2020-04-20",
-  },
-  {
-    project: "test three",
-    description: "this is a test project",
-    dueDate: "2020-04-20",
-  },
-  {
-    project: "test four",
-    description: "this is a test project",
-    dueDate: "2020-04-20",
-  },
-];
-
 const taskSeed = [
   {
-    name: "back end",
-    assigned_to: "Bob",
-    description: "server side code",
-    priority: "low",
-    due_date: "20200420",
+    status: "to-do",
+    title: "Justin Test To-Do",
+    description: "Justin testing task functionality.",
+  },
+  {
+    status: "in-progress",
+    title: "Justin Test In-Progress",
+    description: "Justin testing task functionality.",
+  },
+  {
+    status: "done",
+    title: "Justin Test Done",
+    description: "Justin testing task functionality.",
   },
 ];
 
