@@ -4,3 +4,21 @@ h1{
 input {
     margin: 0;
 }
+.link{
+    border: none;
+    color: white;
+}
+.calendar{
+    padding-left: 35%;
+ } 
+h3{
+    /* text-align: center; */
+    padding-left: 38%;
+}
+.form-control{
+    font-weight: bold;
+    color: black;
+}
+.buttons {
+    margin-left: 41%;
+}
