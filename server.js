@@ -27,6 +27,11 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
+// const connection = mongoose.connection;
+
+// connection.once("open", function () {
+//   console.log("MongoDB database connection established successfully");
+// });
 
 io.on('connection', (socket) => {
   socket.on('message', (message) => {

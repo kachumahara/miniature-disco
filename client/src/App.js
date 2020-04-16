@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import history from "./utils/history";
-
+import DragNDrop from "./components/DragNDrop"
 import { useAuth0 } from "./utils/auth0Provider";
 import PrivateRoute from "../src/components/PrivateRoute";
 
@@ -16,8 +16,9 @@ import AddTask from "./views/AddTask/AddTask";
 import Profile from "../src/views/Profile/Profile";
 // import Project from "./views/Project";
 
-// import Popup from "./components/popup";
-// import logo from "./components/images/logo7.png";
+
+import Popup from "./components/popup";
+import logo from "./components/images/logo7.png";
 
 function App() {
   const { loading } = useAuth0();
@@ -27,6 +28,7 @@ function App() {
   return (
     <Router history={history}>
       <Navbar />
+
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/tasks/add" component={AddTask} />
@@ -34,6 +36,7 @@ function App() {
         {/* <Route path="/project" component={Project} /> */}
         <PrivateRoute path="/tasks/add" component={AddTask} />
       </Switch>
+      <DragNDrop />
     </Router>
   );
 }
