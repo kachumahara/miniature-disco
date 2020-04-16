@@ -8,67 +8,58 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import API from "../../utils/API";
-// import uuid from "uuid/v4";
-// const { v4: uuidv4 } = require("uuid");
-// uuidv4();
+import uuid from "uuid/v4";
+const { v4: uuidv4 } = require("uuid");
+uuidv4();
 
 function DragNDrop() {
   /// using UUID, how to integrate that to backend(Mongodb). These are the projects(items) we are going to drag around.
 
   //// ajax call to retrieve data from seed (Task)
 
-  const [tasks, setTasks] = useState([])
-  const [formObject, setFormObject] = useState({})
-
-  // Load all task and store
-  const itemsFromBackEnd = [
-    
-  
-  ];
+  const [tasks, setTasks] = useState([]);
+  // const [formObject, setFormObject] = useState({})
 
   useEffect(() => {
-    loadTasks()
-  }, [])
+    loadTasks();
+  }, []);
 
-  function loadTasks(tasks){
-    
+  function loadTasks() {
     API.getTasks()
-    .then(res => {
-      console.log(res)
-      setTasks(res.data)
-      itemsFromBackEnd = [
-    
-  
-      ];
+      .then((res) => {
+        // console.log(res);
 
-    })
-    .catch(err => console.log(err))
-
-  };
+        setTasks(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
+  console.log(tasks);
+  // TO DO: STRUCTURE THE RES(data), making a const and function for ItemsFrom back end and columesfrom back end.
 
  
-  
-  /// Creating Columns for Task columns
-  // moving the task seed to columns
-//   const columnsFromBackend = {
-//     [id()]: {
-//       name: "Requested",
-//       items: itemsFromBackEnd,
-//     },
-// }
-  //     [id()]: {
-  //     name: "To Do",
-  //     items: [],
-  //   },
-  //    [id()]: {
-  //     name: "In Progress",
-  //     items: [],
-  //   },
-  //   [id()]: {
-  //     name: "Done",
-  //     items: [],
-  //   },
-  // };
+
+  // /// Creating Columns for tasks columns
+  // // moving the tasks seed to columns
+  const columnsFromBackend = {
+   
+      [uuid()]: {
+        name: "Requested",
+        items: itemsFromBackEnd,
+      },
+      [uuid()]: {
+        name: "To Do",
+        items: [],
+      },
+      [uuid()]: {
+        name: "In Progress",
+        items: [],
+      },
+      [uuid()]: {
+        name: "Done",
+        items: [],
+      },
+    
+  };
   // Drag functions
   const onDragEnd = (result, columns, setColumns) => {
     if (!result.destination) return;
@@ -108,7 +99,7 @@ function DragNDrop() {
 
   // The DragDropContext (Container) has children (Droppable (OnDrag) and Draggable). Its the wrapper
 
-  const [columns, setColumns] = useState(tasks);
+  const [columns, setColumns] = useState(columnsFromBackend);
 
   return (
     <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
@@ -117,7 +108,7 @@ function DragNDrop() {
       >
         {Object.entries(columns).map(([id, column]) => {
           return (
-            <div
+            <div 
               style={{
                 key: "index",
                 display: "flex",
@@ -143,6 +134,7 @@ function DragNDrop() {
                         }}
                       >
                         {column.items.map((item, index) => {
+                          console.log(item)
                           return (
                             <Draggable
                               key={item.id}
