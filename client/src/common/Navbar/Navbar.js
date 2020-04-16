@@ -2,10 +2,11 @@ import React from "react";
 import "./style.css";
 import {useAuth0} from "../../utils/auth0Provider";
 import PopButt from "./popup";
-
+import {Link} from "react-router-dom";
 
 function Navbar() {
     const {isAuthenticated, loading, loginWithPopup, logout} = useAuth0();
+    // const {isAuthenticated, loading, loginWithRedirect, logout} = useAuth0();
 
     
 
@@ -42,6 +43,14 @@ function Navbar() {
                         <PopButt />
                     </li>
                 </ul>
+                {/* <li> */}
+                    {/* { isAuthenticated && (
+                        <span>
+                        <Link to={"/profile"}>Profile</Link>
+                        <Link to={"/tasks/add"}>Add a Task</Link>
+                        </span>
+                        )}
+                </li> */}
             </div>
         </nav>
 
