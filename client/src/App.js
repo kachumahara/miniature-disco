@@ -11,11 +11,17 @@ import Navbar from "./common/Navbar";
 
 // Views
 import Home from "./views/Home";
-import Project from "./views/Project";
+import AddTask from "./views/AddTask/AddTask";
+// import Project from "./views/Project";
 
+<<<<<<< HEAD
 import Popup from "./components/popup";
 import logo from "./components/images/logo7.png";
 import DragNDrop from "./components/DragNDrop";
+=======
+// import Popup from "./components/popup";
+// import logo from "./components/images/logo7.png";
+>>>>>>> 59ada6251feab077e7f1ff4045f72b1abb67d467
 
 function App() {
   return (
@@ -24,7 +30,8 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/project" component={Project} />
+        <Route exact path="/tasks/add" component={AddTask} />
+        {/* <Route path="/project" component={Project} /> */}
       </Switch>
       <DragNDrop />
     </Router>
