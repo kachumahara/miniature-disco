@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-// import { useAuth0 } from "../../utils/auth0Provider";
 import "./style.css";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Input, TextArea, FormBtn } from "../../components/Form/index";
-
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 function AddTask() {
-  //   const { isAuthenticated, user } = useAuth0();
 
 //   components initial state
   const [formObject, setFormObject] = useState({})
   const [formDate, setDate] = useState(new Date())
+
 
 //   update component state when user types in input field
     function handleInputChange(e){
@@ -23,13 +21,14 @@ function AddTask() {
     };
 
 // handle component state when user selects date from calendar
-    function handleDateChange(e){
+    function handleDateChange(formDate){
       setDate(formDate);
     }
 
 // when form is submitted use API.createTask method to save task data
     function handleFormSubmit(e){
         e.preventDefault();
+        console.log(formDate)
         if(formObject.title && formObject.description && formDate) {
             API.createTask({
                 title: formObject.title,
@@ -58,20 +57,19 @@ function AddTask() {
               name="title"
               placeholder="Task Title (required)"
               value={formObject.title}
-              idName="formText"
+              idname="formText"
             />
             <TextArea
               onChange={handleInputChange}
               name="description"
               placeholder="Description of Task (required)"
               value={formObject.description}
-              idName="formText"
+              idname="formText"
             />
             <div className="dueDate fluid">
               <h3>Select Due Date Below</h3>
               <div className="calendar">
                 <Calendar
-                  showNeighboringMonth="false"
                   onChange={handleDateChange}
                   value= {formDate}
                 />
@@ -92,7 +90,5 @@ function AddTask() {
     </div>
   );
 }
-
-/* {isAuthenticated && <p>{JSON.stringify(user, null, 2)}</p>} */
 
 export default AddTask;
