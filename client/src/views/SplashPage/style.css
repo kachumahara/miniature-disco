@@ -7,9 +7,17 @@
     width: 100%;
     background: #000;}
 
+    #logo{
+        max-height: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
 .glow-on-hover {
+    align-items: center;
+    text-align: center;
     margin-top: 40vh;
-    font-size: calc(6vh + .5vmin);
+    font-size: calc(2vh + .5vmin);
     width: 30vh;
     height: 30vh;
     border: none;

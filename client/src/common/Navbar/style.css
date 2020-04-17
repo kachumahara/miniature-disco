@@ -206,19 +206,4 @@ nav {
   float: left;
 }
 
-#logo {
-  border-radius: 90%;
-  max-width: 8vh;
-  max-height: 8vh;
-}
 
-#logo:active {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(28, 28, 171, 1) 35%,
-    rgba(146, 237, 255, 1) 100%
-  );
-  transform: translateY(4px);
-}
