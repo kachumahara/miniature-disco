@@ -109,7 +109,7 @@ input { grid-area: i; }
   }
 
  #chats {
-   z-index: 2;
+   z-index: 7;
   font-family: 'Roboto', sans-serif;
 
    outline-color: #3e8e41;

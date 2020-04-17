@@ -35,8 +35,8 @@ function App() {
     
     return (
         <Router history={history}>
+                <DueDate />
             <Navbar/>
-            <DueDate />
             <Switch>
                 <Route exact path="/"
                     component={Home}/>

@@ -13,7 +13,7 @@ const UserInfo = () => {
   return (
     <Fragment>
       <div>
-      <img src={user.picture} alt="user info" />
+      <img id='chatPic' src={user.picture} alt="user info" />
 </div>
     </Fragment>
   );
