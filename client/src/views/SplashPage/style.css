@@ -14,12 +14,12 @@
     }
 
 .glow-on-hover {
+    margin-top: 25vh;
     align-items: center;
     text-align: center;
-    margin-top: 40vh;
     font-size: calc(2vh + .5vmin);
-    width: 30vh;
-    height: 30vh;
+    width: calc(50vh + .5vmin);
+    height: calc(50vh + .5vmin);
     border: none;
     outline: none;
     color: #fff;

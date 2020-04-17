@@ -20,7 +20,7 @@ const Splash = () => {
     );
   }
 
-  if (isAuthenticated == true) {
+  if (isAuthenticated === true) {
     alert("nice");
   }
 
