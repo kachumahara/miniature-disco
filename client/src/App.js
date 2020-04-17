@@ -20,6 +20,8 @@ import Profile from "../src/views/Profile/Profile";
 import Popup from "./components/popup";
 import logo from "./components/images/logo7.png";
 import Splash from "./views/SplashPage/index";
+import DueDate from "./common/DueDate/index";
+
 
 function App() {
     const {loading, isAuthenticated} = useAuth0();
@@ -34,6 +36,7 @@ function App() {
     return (
         <Router history={history}>
             <Navbar/>
+            <DueDate />
             <Switch>
                 <Route exact path="/"
                     component={Home}/>
