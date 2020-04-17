@@ -23,11 +23,11 @@ function DueDate() {
   function loadTasks() {
     API.getTasks()
       .then((res) => {
-          let dong, i, x = '';
-        dong = res.data
+          let info, i, x = '';
+        info = res.data
         // console.log(dood);
-        for (i in dong.title) {
-            x += dong.title[i] + "<br>";
+        for (i in info.title) {
+            x += info.title[i] + "<br>";
             console.log(x)
           }
         setTasks(res.data);
