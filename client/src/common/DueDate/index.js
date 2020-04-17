@@ -1,18 +1,11 @@
 import React from "react";
 import "./style.css";
-import {useAuth0} from "../../utils/auth0Provider";
-import {Link} from "react-router-dom";
-import API from "../../utils/API";
+const db = require("../../models/task");
 
-var axios = require("axios");
 
 
 
 function DueDate() {
-    const {isAuthenticated, loading, loginWithPopup, logout} = useAuth0();
-    // const {isAuthenticated, loading, loginWithRedirect, logout} = useAuth0();
-
-    
 
     return (
 
