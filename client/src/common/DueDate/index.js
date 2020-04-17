@@ -11,9 +11,7 @@ uuidv4();
 //// ajax call to retrieve data from seed (Task)
 function DueDate() {
   const [tasks, setTasks] = useState([
-    {
-      title: "",
-    },
+//  console.log(title)
   ]);
   // const [formObject, setFormObject] = useState({})
   useEffect(() => {
@@ -23,13 +21,9 @@ function DueDate() {
   function loadTasks() {
     API.getTasks()
       .then((res) => {
-          let info, i, x = '';
-        info = res.data
-        // console.log(dood);
-        for (i in info.title) {
-            x += info.title[i] + "<br>";
-            console.log(x)
-          }
+
+        // info = res.data
+
         setTasks(res.data);
       })
       .catch((err) => console.log(err));

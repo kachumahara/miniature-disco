@@ -39,11 +39,12 @@ function AddTask() {
               setFormObject({"title":"","description":""});
             })
             .catch(err => console.log(err));
+            alert('Task Submitted!')
         }
     }
 
   return (
-    <div className="container mt-4">
+    <div id="popAdd" className="container mt-4">
       <div className="row">
         <div className="col">
           <h1>Add a New Task</h1>

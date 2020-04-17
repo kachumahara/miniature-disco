@@ -1,0 +1,44 @@
+.popup2 {  
+    text-align: center;
+
+ 
+    position: fixed;  
+    
+  }  
+  .popup2\_inner {  
+    position: absolute;    
+    right: 25%;  
+    top: 25%;  
+    bottom: 25%;  
+    margin: auto;  
+    border-radius: 20px;  
+  }
+
+
+
+  #popButt2{
+    color: azure;
+    background: linear-gradient(90deg, rgba(28,23,105,1) 0%, rgba(28,28,171,1) 35%, rgba(212,86,207,1) 59%, rgba(146,237,255,1) 100%);
+
+  /* text-align: center;
+  grid-auto-rows: auto;
+  grid-template-columns: 40px 50px auto 50px 40px;
+  grid-template-rows: 25% 100px auto;
+  float: left;
+  grid-row: 3;
+  height: 50%;
+  width: 100%;
+  overflow: auto;
+  padding-right: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 2vh;
+    background: rgb(28,23,105);
+    background: linear-gradient(90deg, rgba(28,23,105,1) 0%, rgba(28,28,171,1) 35%, rgba(212,86,207,1) 59%, rgba(146,237,255,1) 100%);
+    color: white;
+    text-align: center;
+    -webkit-box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.75);
+    font-size: calc(3vh + .5vmin); */
+  }
