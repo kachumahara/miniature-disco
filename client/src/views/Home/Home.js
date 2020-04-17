@@ -1,11 +1,12 @@
 import React from "react";
+import DragNDrop from "../../components/DragNDrop/index";
 
 function Home() {
   return (
     <div>
-      <h1>Welcome Home!</h1>
+      <DragNDrop />
     </div>
-  );
-}
+        )
+      }
 
 export default Home;
