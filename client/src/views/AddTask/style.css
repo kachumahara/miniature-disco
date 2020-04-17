@@ -22,3 +22,7 @@ h3{
 .buttons {
     margin-left: 41%;
 }
+
+#popAdd{
+    background: rgba(41, 41, 40, .95);
+}
