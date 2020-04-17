@@ -1,8 +1,8 @@
 import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import {Router, Route, Switch} from "react-router-dom";
 import history from "./utils/history";
 import DragNDrop from "./components/DragNDrop"
-import { useAuth0 } from "./utils/auth0Provider";
+import {useAuth0} from "./utils/auth0Provider";
 import PrivateRoute from "../src/components/PrivateRoute";
 
 import "./App.css";
@@ -22,40 +22,46 @@ import logo from "./components/images/logo7.png";
 import Splash from "./views/SplashPage/index";
 
 function App() {
-  const { loading } = useAuth0();
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  return (
-<Splash>
-    <Router history={history}>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/tasks/add" component={AddTask} />
-        <Route path="/profile" component={Profile}/>
-        {/* <Route path="/project" component={Project} /> */}
-        <PrivateRoute path="/tasks/add" component={AddTask} />
-      </Switch>
-      <DragNDrop />
-    </Router>
-    </Splash>
-  );
+    const {loading, isAuthenticated} = useAuth0();
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+    if (!isAuthenticated) {
+        return (
+            <Splash/>)
+    }
+    
+    return (
+        <Router history={history}>
+            <Navbar/>
+            <Switch>
+                <Route exact path="/"
+                    component={Home}/>
+                <Route exact path="/tasks/add"
+                    component={AddTask}/>
+                <Route path="/profile"
+                    component={Profile}/> {/* <Route path="/project" component={Project} /> */}
+                <PrivateRoute path="/tasks/add"
+                    component={AddTask}/>
+            </Switch>
+            <DragNDrop/>
+        </Router>
+    );
 }
 
 // class App extends Component {
-//   constructor(props) {
+// constructor(props) {
 //     super(props);
 //     this.state = { showPopup: false };
-//   }
+// }
 
-//   togglePopup() {
+// togglePopup() {
 //     this.setState({
 //       showPopup: !this.state.showPopup,
 //     });
-//   }
+// }
 
-//   render() {
+// render() {
 //     return (
 //       <div id="main">
 //         <img
@@ -73,7 +79,7 @@ function App() {
 //         ) : null}
 //       </div>
 //     );
-//   }
+// }
 // }
 
 export default App;

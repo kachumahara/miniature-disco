@@ -29,9 +29,10 @@ function Navbar() {
                         <li id="signInOut" className="nav-item">
                             {
                             !isAuthenticated && !loading ? (
-                                <button id="signIn" onClick={
+                                <button onClick={
                                     () => loginWithPopup()
-                                }>Sign In</button>
+                                } class="btn-liquid">
+                                <span class="inner">Liquid button ?</span>>Sign In</button>
                             ) : (
                                 <button id="signOut" onClick={
                                     () => logout()
