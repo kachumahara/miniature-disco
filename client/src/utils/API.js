@@ -15,19 +15,19 @@ export default {
   },
 
   getTasks: function () {
-    return axios.get("/api/task");
+    return axios.get("/api/tasks");
   },
 
   getTask: function (id) {
-    return axios.get("/api/task/" + id);
+    return axios.get("/api/tasks/" + id);
   },
 
   deleteTasks: function (id) {
-    return axios.delete("/api/task/" + id);
+    return axios.delete("/api/tasks/" + id);
   },
 
   createTask: function (taskData) {
-    return axios.post("/api/task" + taskData);
+    return axios.post("/api/tasks/add", taskData);
   },
 
   getDeadlines: function () {

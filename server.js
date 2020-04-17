@@ -22,8 +22,19 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/strategyscope", {
     useNewUrlParser: true,
+<<<<<<< HEAD
     useUnifiedTopology: true
 });
+=======
+    useUnifiedTopology: true,
+  }
+);
+// const connection = mongoose.connection;
+
+// connection.once("open", function () {
+//   console.log("MongoDB database connection established successfully");
+// });
+>>>>>>> a8093e6f20828b542af10b385b1a198460f9333a
 
 io.on('connection', (socket) => {
     socket.on('message', (message) => {
