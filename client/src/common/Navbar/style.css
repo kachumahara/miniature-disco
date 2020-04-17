@@ -3,8 +3,10 @@ nav.navbar.navbar-default {
 }
 #signInOut {
   border-radius: 90%;
-  width: 8vh;
-  height: 6vh;
+  /* width: 8vh; */
+  /* height: 6vh; */
+  width: 20vh;
+  height: 18vh;
   margin-bottom: 1%;
 }
 #signInOut:active {

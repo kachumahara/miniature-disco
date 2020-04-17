@@ -31,12 +31,14 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/project" component={DragNDrop} />
         <Route exact path="/tasks/add" component={AddTask} />
         <Route path="/profile" component={Profile}/>
-        {/* <Route path="/project" component={Project} /> */}
+        {/* <PrivateRoute path="/kanban" component={DragNDrop} /> */}
         <PrivateRoute path="/tasks/add" component={AddTask} />
+        <PrivateRoute path="/profile" component={Profile} />
       </Switch>
-      <DragNDrop />
+      {/* <DragNDrop /> */}
     </Router>
   );
 }
