@@ -47,29 +47,29 @@ function DragNDrop() {
   }
   console.log(tasks);
   // TO DO: STRUCTURE THE RES(data), making a const and function for ItemsFrom back end and columesfrom back end.
-
+  
   // /// Creating Columns for tasks columns
   // // moving the tasks seed to columns
   const columnsFromBackend = {
     ["to-do"]: {
       name: "To Do",
-      status: "to-do",
-      title:"To do",
-      description: "Tasks to perform",
+      // status: "to-do",
+      // title:"To do",
+      // description: "Tasks to perform",
       tasks: []
     },
     ["in-progress"]: {
       name: "In Progress",
-      status: "in-progress",
-      title: "In Progress",
-      description: "Stuff I'm working on",
+      // status: "in-progress",
+      // title: "In Progress",
+      // description: "Stuff I'm working on",
       tasks: []
     },
     ["done"]: {
       name: "Done",
-      status: "done",
-      title: "Done",
-      description: "concluded the task",
+      // status: "done",
+      // title: "Done",
+      // description: "concluded the task",
       tasks: []
 
     },
@@ -120,7 +120,7 @@ function DragNDrop() {
   return (
     <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
       <DragDropContext
-        onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
+        onDragEnd={(tasks) => onDragEnd(tasks, columns, setColumns)}
       >
         {Object.entries(columns).map(([id, column]) => {
           return (
