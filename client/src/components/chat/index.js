@@ -1,9 +1,13 @@
-import React from 'react';
 import './style.css';
 
 import io from "socket.io-client";
 import {useAuth0} from "../../utils/auth0Provider";
+import React, { Fragment } from "react";
+import UserInfo from "../../components/userinfo";
+import Name from "../../components/Name/";
+    
 
+console.log({Name})
 
 class Chat extends React.Component {
 
@@ -38,7 +42,7 @@ class Chat extends React.Component {
         if (event.keyCode === 13 && body) {
             let message = {
                 body,
-                from: 'Chat-Gang'
+                from: 'From: '
             }
             this.setState({
                 messages: [
@@ -47,30 +51,10 @@ class Chat extends React.Component {
                 ]
             })
             this.socket.emit('message', message)
+            this.socket.emit('name', Name)
 
         }
 
-    }
-    render() {
-        return (
-            <div>
-                <input type='text' placeholder='message here'
-                    onKeyUp={
-                        this.sendMessage
-                    }/> {
-                this.state.messages.map((message) => {
-                    return (
-                        <li id='chats'>
-                            {
-                            message.body
-                        }
-                            -Made By-{
-                            message.from
-                        }</li>
-                    )
-                })
-            } </div>
-        );
     }
 
 
@@ -93,14 +77,14 @@ class Chat extends React.Component {
                         this.state.messages.map((message) => {
                             return (
                                 <li id='chats'>
-                                    {
-                                    message.body
-                                }
+                                    {message.body}
                                     {' '}
                                     <span></span>
-                                    from-{
-                                    message.from
-                                }</li>
+                                    <div id='userInfo'>
+                                    <Name />
+                                    <UserInfo />
+                                    </div>
+                                    </li>
                             )
                         })
                     } </ul>

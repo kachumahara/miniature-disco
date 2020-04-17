@@ -19,6 +19,7 @@ import Profile from "../src/views/Profile/Profile";
 
 import Popup from "./components/popup";
 import logo from "./components/images/logo7.png";
+import Splash from "./views/SplashPage/index";
 
 function App() {
   const { loading } = useAuth0();
@@ -28,7 +29,7 @@ function App() {
   return (
     <Router history={history}>
       <Navbar />
-
+<Splash />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/tasks/add" component={AddTask} />

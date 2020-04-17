@@ -1,7 +1,9 @@
 nav.navbar.navbar-default {
   margin-bottom: 2vw;
+  font-family: 'Roboto', sans-serif;
 }
 #signInOut {
+  font-family: 'Roboto', sans-serif;
   border-radius: 90%;
   width: 8vh;
   height: 6vh;

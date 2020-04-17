@@ -5,7 +5,7 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const socketPort = 5000
+const socketPort =  process.env.PORT || 5000;
 const http = require('http').createServer()
 const io = require('socket.io')(http);
 
@@ -22,10 +22,6 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/strategyscope", {
     useNewUrlParser: true,
-<<<<<<< HEAD
-    useUnifiedTopology: true
-});
-=======
     useUnifiedTopology: true,
   }
 );
@@ -34,7 +30,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/strategyscope",
 // connection.once("open", function () {
 //   console.log("MongoDB database connection established successfully");
 // });
->>>>>>> a8093e6f20828b542af10b385b1a198460f9333a
 
 io.on('connection', (socket) => {
     socket.on('message', (message) => {
