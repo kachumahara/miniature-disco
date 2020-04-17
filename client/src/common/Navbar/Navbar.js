@@ -1,8 +1,11 @@
 import React from "react";
 import "./style.css";
 import { useAuth0 } from "../../utils/auth0Provider";
-import PopButt from "./popup";
-import { Link } from "react-router-dom";
+import { Link, Router, Route, Switch } from "react-router-dom";
+import PopButt from "./popup"
+import PopButt2 from "./popup2";;
+
+// import Profile from "../src/views/Profile/Profile";
 
 function Navbar() {
   const { isAuthenticated, loading, loginWithPopup, logout } = useAuth0();
@@ -27,6 +30,10 @@ function Navbar() {
           <li id="popButt">
             <PopButt />
           </li>
+
+            <li id="popButt2">
+              <PopButt2 />
+            </li>
         </ul>
       </div>
     </nav>

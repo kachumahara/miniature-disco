@@ -85,7 +85,7 @@ nav.navbar.navbar-default {
 
 #chatButt {
   font-family: "Roboto", sans-serif;
-
+  margin-left:calc(1vh + 0vh);
   font-size: calc(1.1vh + 0.5vmin);
   width: 10vh;
   height: 5vh;
@@ -199,9 +199,4 @@ nav {
   overflow: hidden;
 }
 
-#popButt {
-  margin-left: 5em;
-  font-family: "Roboto", sans-serif;
-  border-radius: 90%;
-  float: left;
-}
+
