@@ -3,7 +3,7 @@ import "./style.css";
 import { useAuth0 } from "../../utils/auth0Provider";
 import { Link, Router, Route, Switch } from "react-router-dom";
 import PopButt from "./popup"
-import PopButt2 from "./popup2";;
+// import PopButt2 from "./popup2";
 
 // import Profile from "../src/views/Profile/Profile";
 
@@ -31,8 +31,11 @@ function Navbar() {
             <PopButt />
           </li>
 
-            <li id="popButt2">
+            {/* <li id="popButt2">
               <PopButt2 />
+            </li> */}
+            <li >
+              <button id="taskAddButt"><Link to={"/tasks/add"}>Add Task</Link></button>
             </li>
         </ul>
       </div>
