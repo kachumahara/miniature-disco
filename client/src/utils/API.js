@@ -30,6 +30,10 @@ export default {
     return axios.post("/api/tasks/add", taskData);
   },
 
+  updateTask: function (id) {
+    return axios.put("/api/tasks/" + id);
+  },
+
   getDeadlines: function () {
     return axios.get("/api/deadline");
   },
