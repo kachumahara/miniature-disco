@@ -13,7 +13,7 @@ import Navbar from "./common/Navbar";
 import Home from "./views/Home";
 import AddTask from "./views/AddTask/AddTask";
 import Profile from "../src/views/Profile/Profile";
-import ViewTasks from "../src/views/ViewTasks/ViewTasks";
+// import ViewTasks from "../src/views/ViewTasks/ViewTasks";
 // import Project from "./views/Project";
 
 import Popup from "./components/popup";
@@ -37,12 +37,12 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/tasks/add" component={AddTask} />
-        <Route path="/tasks/:id" component={ViewTasks}/>
+        {/* <Route path="/tasks/:id" component={ViewTasks}/> */}
         <Route path="/profile" component={Profile} />{" "}
         {/* <Route path="/project" component={Project} /> */}
         <PrivateRoute path="/profile" component={Profile}/>
         <PrivateRoute path="/tasks/add" component={AddTask} />
-        <PrivateRoute path="/tasks/:id" component={ViewTasks}/>
+        {/* <PrivateRoute path="/tasks/:id" component={ViewTasks}/> */}
       </Switch>
     </Router>
   );

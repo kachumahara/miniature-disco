@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const taskController = require("../../controllers/taskController");
+const authRoute = require("../../utils/authO");
 
 // matches with /api/tasks
 router
   .route("/")
-  .get(taskController.findAll)
+  .get(authRoute, taskController.findAll)
 
 // matches with /api/tasks/add
 router

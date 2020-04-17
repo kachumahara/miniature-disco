@@ -14,8 +14,12 @@ export default {
     return axios.post("/api/projects/", projectData);
   },
 
-  getTasks: function () {
-    return axios.get("/api/tasks");
+  getTasks: function (token) {
+    return axios.get("/api/tasks", {
+      headers: { 
+        authorization: `Bearer ${token}`
+      }
+    });
   },
 
   getTask: function (id) {

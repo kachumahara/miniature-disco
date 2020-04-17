@@ -1,5 +1,5 @@
 {
   "domain": "dev-b5bcy0hn.auth0.com",
   "clientId": "kHuU3ph7nVYxQ9WBI40YVu73L38AHwVP",
-  "audience": "https://api.strategyscope.com/"
+  "audience": "stscope.com"
 }
