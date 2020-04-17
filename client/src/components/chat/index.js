@@ -37,7 +37,7 @@ class Chat extends React.Component {
   }
 
   sendMessage(event) {
-    let input = this.state.value;
+    // let input = this.state.value;
 
     const body = event.target.value;
     if (event.keyCode === 13 && body) {

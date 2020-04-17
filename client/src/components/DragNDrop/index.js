@@ -31,17 +31,17 @@ function DragNDrop() {
         setColumns({
           ["done"]: {
             ...columns["done"],
-            tasks: res.data.filter(task => task.status === "done")
+            tasks: res.data.filter((task) => task.status === "done"),
           },
-          ["in-progress"]:{
+          ["in-progress"]: {
             ...columns["in-progress"],
-            tasks: res.data.filter(task => task.status === "in-progress")
+            tasks: res.data.filter((task) => task.status === "in-progress"),
           },
-          ["to-do"]:{
+          ["to-do"]: {
             ...columns["to-do"],
-            tasks: res.data.filter(task => task.status === "to-do")
-          }
-        })
+            tasks: res.data.filter((task) => task.status === "to-do"),
+          },
+        });
       })
       .catch((err) => console.log(err));
   }
@@ -53,21 +53,21 @@ function DragNDrop() {
   const columnsFromBackend = {
     ["to-do"]: {
       status: "to-do",
-      title:"To do",
+      title: "To do",
       description: "Tasks to perform",
-      tasks: []
+      tasks: [],
     },
     ["in-progress"]: {
       status: "in-progress",
       title: "In Progress",
       description: "Stuff I'm working on",
-      tasks: []
+      tasks: [],
     },
     ["done"]: {
       status: "done",
       title: [],
       description: [],
-      tasks: []
+      tasks: [],
     },
   };
   // Drag functions
@@ -132,7 +132,6 @@ function DragNDrop() {
               <div style={{ margin: 8 }}>
                 <Droppable droppableId={id} key={id}>
                   {(provided, snapshot) => {
-                
                     return (
                       <div
                         {...provided.droppablePorps}

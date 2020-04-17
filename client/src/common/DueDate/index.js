@@ -6,39 +6,44 @@ import uuid from "uuid/v4";
 const { v4: uuidv4 } = require("uuid");
 uuidv4();
 
+/// using UUID, how to integrate that to backend(Mongodb). These are the projects(items) we are going to drag around.
 
-    /// using UUID, how to integrate that to backend(Mongodb). These are the projects(items) we are going to drag around.
-  
-    //// ajax call to retrieve data from seed (Task)
-    function DueDate() {
-    const [tasks, setTasks] = useState([]);
-    // const [formObject, setFormObject] = useState({})
-    console.table(tasks)
-    useEffect(() => {
-      loadTasks();
-    }, []);
-  
-    function loadTasks() {
-      API.getTasks()
-        .then((res) => {
-          setTasks(res.data);
-        })
-        .catch((err) => console.log(err));
-    }
-    
+//// ajax call to retrieve data from seed (Task)
+function DueDate() {
+  const [tasks, setTasks] = useState([
+    {
+      title: "",
+    },
+  ]);
+  // const [formObject, setFormObject] = useState({})
+  useEffect(() => {
+    loadTasks();
+  }, []);
 
-    return( 
-            <div className="sidenav">
-            <ul>
-            <li id='sideLi'>{tasks.title}</li>
+  function loadTasks() {
+    API.getTasks()
+      .then((res) => {
+          let dong, i, x = '';
+        dong = res.data
+        // console.log(dood);
+        for (i in dong.title) {
+            x += dong.title[i] + "<br>";
+            console.log(x)
+          }
+        setTasks(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
-                <li id='sideLi'>Shyaboi</li>
-            </ul>
-            </div>
-        )
+  return (
+    <div className="sidenav">
+      <ul>
+        <li id="sideLi">Shyaboi</li>
+      </ul>
+    </div>
+  );
 }
 export default DueDate;
-
 
 // function DueDate() {
 
@@ -55,16 +60,9 @@ export default DueDate;
 //  <li id='sideLi'><p>Shyaboi</p><p>10/24/3030</p></li>
 //  <li id='sideLi'><p>Shyaboi</p><p>10/24/3030</p></li>
 
-
- 
 // </ul>
- 
- 
+
 // </div>
-
- 
-
 
 //     );
 // }
-
