@@ -1,4 +1,6 @@
 .sidenav {
+    overflow: auto;
+
   height: 100%;
   width: calc(20vh + 0.5vmin);
   position: fixed;
@@ -15,7 +17,6 @@
 
 .sidenav ul {
    
-    overflow-y:hidden;
 
     left: -3vh;
     float: left;

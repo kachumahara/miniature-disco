@@ -2,9 +2,9 @@ import React from "react";
 import "./style.css";
 import {useAuth0} from "../../utils/auth0Provider";
 import {Link} from "react-router-dom";
+import API from "../../utils/API";
 
-
-
+var axios = require("axios");
 
 
 
