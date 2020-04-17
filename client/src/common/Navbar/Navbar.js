@@ -31,8 +31,11 @@ function Navbar() {
             <PopButt />
           </li>
 
-            <li id="popButt2">
+            {/* <li id="popButt2">
               <PopButt2 />
+            </li> */}
+            <li>
+              <Link to={"/tasks/add"}><button>Add Task</button></Link>
             </li>
         </ul>
       </div>
