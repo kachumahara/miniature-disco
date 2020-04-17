@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../client/src/models");
 
 // defining methods for the taskController
 module.exports = {
@@ -9,7 +9,9 @@ module.exports = {
             .sort({DueDate: +1})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+            console.log(req.body)
     },
+
     findById: function(req, res){
         db.Task
             .find(req.params.id)
