@@ -29,82 +29,48 @@ function DragNDrop() {
       .then((res) => {
         setTasks(res.data);
         setColumns({
-<<<<<<< HEAD
           ["to-do"]: {
             ...columns["to-do"],
             tasks: res.data.filter(task => task.status === "to-do")
-=======
-          ["done"]: {
-            ...columns["done"],
-            tasks: res.data.filter((task) => task.status === "done"),
->>>>>>> ef630577343c6bc5e7c76b2502375a6b86a8f457
           },
-          ["in-progress"]: {
+          ["in-progress"]:{
             ...columns["in-progress"],
-            tasks: res.data.filter((task) => task.status === "in-progress"),
+            tasks: res.data.filter(task => task.status === "in-progress")
           },
-<<<<<<< HEAD
           ["done"]:{
             ...columns["done"],
             tasks: res.data.filter(task => task.status === "done")
           }
         })
-=======
-          ["to-do"]: {
-            ...columns["to-do"],
-            tasks: res.data.filter((task) => task.status === "to-do"),
-          },
-        });
->>>>>>> ef630577343c6bc5e7c76b2502375a6b86a8f457
       })
       .catch((err) => console.log(err));
   }
   console.log(tasks);
   // TO DO: STRUCTURE THE RES(data), making a const and function for ItemsFrom back end and columesfrom back end.
-  
+
   // /// Creating Columns for tasks columns
   // // moving the tasks seed to columns
   const columnsFromBackend = {
     ["to-do"]: {
-<<<<<<< HEAD
       name: "To Do",
-      // status: "to-do",
-      // title:"To do",
-      // description: "Tasks to perform",
+      status: "to-do",
+      title:"To do",
+      description: "Tasks to perform",
       tasks: []
     },
     ["in-progress"]: {
       name: "In Progress",
-      // status: "in-progress",
-      // title: "In Progress",
-      // description: "Stuff I'm working on",
+      status: "in-progress",
+      title: "In Progress",
+      description: "Stuff I'm working on",
       tasks: []
     },
     ["done"]: {
       name: "Done",
-      // status: "done",
-      // title: "Done",
-      // description: "concluded the task",
-      tasks: []
-
-=======
-      status: "to-do",
-      title: "To do",
-      description: "Tasks to perform",
-      tasks: [],
-    },
-    ["in-progress"]: {
-      status: "in-progress",
-      title: "In Progress",
-      description: "Stuff I'm working on",
-      tasks: [],
-    },
-    ["done"]: {
       status: "done",
       title: [],
       description: [],
-      tasks: [],
->>>>>>> ef630577343c6bc5e7c76b2502375a6b86a8f457
+      tasks: []
     },
   };
   // Drag functions
@@ -153,7 +119,7 @@ function DragNDrop() {
   return (
     <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
       <DragDropContext
-        onDragEnd={(tasks) => onDragEnd(tasks, columns, setColumns)}
+        onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
       >
         {Object.entries(columns).map(([id, column]) => {
           return (
@@ -166,9 +132,10 @@ function DragNDrop() {
               }}
             >
               <h2>{column.name}</h2>
-              <div style={{ margin: 8 }} id={tasks._id}>
+              <div style={{ margin: 8 }}>
                 <Droppable droppableId={id} key={id}>
                   {(provided, snapshot) => {
+                
                     return (
                       <div
                         {...provided.droppablePorps}
