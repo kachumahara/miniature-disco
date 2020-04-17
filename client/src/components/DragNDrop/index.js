@@ -29,19 +29,33 @@ function DragNDrop() {
       .then((res) => {
         setTasks(res.data);
         setColumns({
+<<<<<<< HEAD
           ["to-do"]: {
             ...columns["to-do"],
             tasks: res.data.filter(task => task.status === "to-do")
+=======
+          ["done"]: {
+            ...columns["done"],
+            tasks: res.data.filter((task) => task.status === "done"),
+>>>>>>> ef630577343c6bc5e7c76b2502375a6b86a8f457
           },
-          ["in-progress"]:{
+          ["in-progress"]: {
             ...columns["in-progress"],
-            tasks: res.data.filter(task => task.status === "in-progress")
+            tasks: res.data.filter((task) => task.status === "in-progress"),
           },
+<<<<<<< HEAD
           ["done"]:{
             ...columns["done"],
             tasks: res.data.filter(task => task.status === "done")
           }
         })
+=======
+          ["to-do"]: {
+            ...columns["to-do"],
+            tasks: res.data.filter((task) => task.status === "to-do"),
+          },
+        });
+>>>>>>> ef630577343c6bc5e7c76b2502375a6b86a8f457
       })
       .catch((err) => console.log(err));
   }
@@ -52,6 +66,7 @@ function DragNDrop() {
   // // moving the tasks seed to columns
   const columnsFromBackend = {
     ["to-do"]: {
+<<<<<<< HEAD
       name: "To Do",
       // status: "to-do",
       // title:"To do",
@@ -72,6 +87,24 @@ function DragNDrop() {
       // description: "concluded the task",
       tasks: []
 
+=======
+      status: "to-do",
+      title: "To do",
+      description: "Tasks to perform",
+      tasks: [],
+    },
+    ["in-progress"]: {
+      status: "in-progress",
+      title: "In Progress",
+      description: "Stuff I'm working on",
+      tasks: [],
+    },
+    ["done"]: {
+      status: "done",
+      title: [],
+      description: [],
+      tasks: [],
+>>>>>>> ef630577343c6bc5e7c76b2502375a6b86a8f457
     },
   };
   // Drag functions
@@ -136,7 +169,6 @@ function DragNDrop() {
               <div style={{ margin: 8 }} id={tasks._id}>
                 <Droppable droppableId={id} key={id}>
                   {(provided, snapshot) => {
-                
                     return (
                       <div
                         {...provided.droppablePorps}

@@ -46,6 +46,9 @@ input { grid-area: i; }
     font-size: calc(3vh + .5vmin);
   }
   input{
+    -webkit-box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.75);
     word-wrap: normal;
     font-size:  calc(2vh + 1vmin);
     height: 5vh;
@@ -55,7 +58,7 @@ input { grid-area: i; }
     padding: 1vh;
     position: relative;
   }
-  #butt {
+  /* #butt {
     padding: 1vh;
     font-size:  calc(2vh + 1vmin);
     text-align: center;
@@ -95,15 +98,20 @@ input { grid-area: i; }
    background-color: #3e8e41;
    box-shadow: 0 5px #666;
    transform: translateY(4px);
- }
+ } */
 
   #messages {
+    font-family: 'Roboto', sans-serif;
+
     font-size: 2vh;
     text-align: center;
     position: relative;
   }
 
  #chats {
+   z-index: 7;
+  font-family: 'Roboto', sans-serif;
+
    outline-color: #3e8e41;
    outline-width: 2vh;
 outline: groove;
@@ -114,12 +122,17 @@ outline: groove;
     cursor: pointer;
     float: left;
     list-style-type: none;
-    background-color: rgba(0, 0, 0, 0.55);
-    outline-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.35);
+    outline-color: rgba(0, 0, 0, 0.25);
     outline: 2px;
     padding: 2vh;
     margin: .5vh;
-    -webkit-box-shadow: 0px 2px 9px 5px rgba(41,41,40,1);
-    -moz-box-shadow: 0px 2px 9px 5px rgba(41,41,40,1);
-    box-shadow: 0px 2px 9px 5px rgba(41,41,40,1);
+    -webkit-box-shadow: 0px 2px 3px 5px rgba(35,41,40,1);
+    -moz-box-shadow: 0px 2px 3px 5px rgba(35,41,40,1);
+    box-shadow: 0px 2px 5px 5px rgba(35,41,40,1);
+  }
+
+  #userInfo{
+    position: relative;
+float: right;
   }
