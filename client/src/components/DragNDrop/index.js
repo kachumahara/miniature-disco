@@ -8,9 +8,9 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import API from "../../utils/API";
-import uuid from "uuid/v4";
-const { v4: uuidv4 } = require("uuid");
-uuidv4();
+// import uuid from "uuid/v4";
+// const { v4: uuidv4 } = require("uuid");
+// uuidv4();
 
 function DragNDrop() {
   /// using UUID, how to integrate that to backend(Mongodb). These are the projects(items) we are going to drag around.
@@ -29,19 +29,19 @@ function DragNDrop() {
       .then((res) => {
         setTasks(res.data);
         setColumns({
-          ["done"]: {
-            ...columns["done"],
-            tasks: res.data.filter((task) => task.status === "done"),
-          },
-          ["in-progress"]: {
-            ...columns["in-progress"],
-            tasks: res.data.filter((task) => task.status === "in-progress"),
-          },
           ["to-do"]: {
             ...columns["to-do"],
-            tasks: res.data.filter((task) => task.status === "to-do"),
+            tasks: res.data.filter(task => task.status === "to-do")
           },
-        });
+          ["in-progress"]:{
+            ...columns["in-progress"],
+            tasks: res.data.filter(task => task.status === "in-progress")
+          },
+          ["done"]:{
+            ...columns["done"],
+            tasks: res.data.filter(task => task.status === "done")
+          }
+        })
       })
       .catch((err) => console.log(err));
   }
@@ -52,22 +52,25 @@ function DragNDrop() {
   // // moving the tasks seed to columns
   const columnsFromBackend = {
     ["to-do"]: {
+      name: "To Do",
       status: "to-do",
-      title: "To do",
+      title:"To do",
       description: "Tasks to perform",
-      tasks: [],
+      tasks: []
     },
     ["in-progress"]: {
+      name: "In Progress",
       status: "in-progress",
       title: "In Progress",
       description: "Stuff I'm working on",
-      tasks: [],
+      tasks: []
     },
     ["done"]: {
+      name: "Done",
       status: "done",
       title: [],
       description: [],
-      tasks: [],
+      tasks: []
     },
   };
   // Drag functions
@@ -132,6 +135,7 @@ function DragNDrop() {
               <div style={{ margin: 8 }}>
                 <Droppable droppableId={id} key={id}>
                   {(provided, snapshot) => {
+                
                     return (
                       <div
                         {...provided.droppablePorps}
@@ -165,8 +169,8 @@ function DragNDrop() {
                                       margin: "0 0 8px 0",
                                       minHeight: "50px",
                                       backgroundColor: snapshot.isDragging
-                                        ? "blue"
-                                        : "green",
+                                        ? "black"
+                                        : "blue",
                                       color: "white",
                                       ...provided.draggableProps.style,
                                     }}
