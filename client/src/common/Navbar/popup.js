@@ -18,8 +18,8 @@ class PopButt extends Component {
   render() {
     return (
      <div> 
-       <img id='logo' onClick={this.togglePopup.bind(this)} src={logo}
-     alt="mail poem"/>
+       <button id='chatButt'onClick={this.togglePopup.bind(this)} src={logo}
+     alt="chat">Chat</button>
        {this.state.showPopup ?
          <Popup
           text='Click "Close Button" to hide popup'
