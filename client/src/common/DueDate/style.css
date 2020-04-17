@@ -1,4 +1,10 @@
 .sidenav {
+  background: linear-gradient(
+    30deg,
+    rgb(117, 116, 121) 0%,
+    rgba(28, 28, 171, 1) 35%,
+    rgba(146, 237, 255, 1) 100%
+  );
     overflow: auto;
 
   height: 100%;
