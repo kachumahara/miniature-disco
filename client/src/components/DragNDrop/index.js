@@ -31,17 +31,17 @@ function DragNDrop() {
         setColumns({
           ["to-do"]: {
             ...columns["to-do"],
-            tasks: res.data.filter(task => task.status === "to-do")
+            tasks: res.data.filter((task) => task.status === "to-do"),
           },
-          ["in-progress"]:{
+          ["in-progress"]: {
             ...columns["in-progress"],
-            tasks: res.data.filter(task => task.status === "in-progress")
+            tasks: res.data.filter((task) => task.status === "in-progress"),
           },
-          ["done"]:{
+          ["done"]: {
             ...columns["done"],
-            tasks: res.data.filter(task => task.status === "done")
-          }
-        })
+            tasks: res.data.filter((task) => task.status === "done"),
+          },
+        });
       })
       .catch((err) => console.log(err));
   }
@@ -53,24 +53,18 @@ function DragNDrop() {
   const columnsFromBackend = {
     ["to-do"]: {
       name: "To Do",
-      status: "to-do",
-      title:"To do",
-      description: "Tasks to perform",
-      tasks: []
+
+      tasks: [],
     },
     ["in-progress"]: {
       name: "In Progress",
-      status: "in-progress",
-      title: "In Progress",
-      description: "Stuff I'm working on",
-      tasks: []
+
+      tasks: [],
     },
     ["done"]: {
       name: "Done",
-      status: "done",
-      title: [],
-      description: [],
-      tasks: []
+
+      tasks: [],
     },
   };
   // Drag functions
@@ -135,7 +129,6 @@ function DragNDrop() {
               <div style={{ margin: 8 }}>
                 <Droppable droppableId={id} key={id}>
                   {(provided, snapshot) => {
-                
                     return (
                       <div
                         {...provided.droppablePorps}
@@ -175,7 +168,7 @@ function DragNDrop() {
                                       ...provided.draggableProps.style,
                                     }}
                                   >
-                                    {task.content}
+                                    {task.description}
                                   </div>
                                 );
                               }}
