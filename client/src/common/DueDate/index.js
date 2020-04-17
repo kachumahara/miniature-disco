@@ -16,12 +16,17 @@ function DueDate() {
 
     return (
 
-       <div class="sidenav">
+       <div className="sidenav">
  <ul>
- <li id='sideLi'>Shyaboi</li>
- <li id='sideLi'>Shyaboi</li>
- <li id='sideLi'>Shyaboi</li>
- <li id='sideLi'>Shyaboi</li>
+ <li id='sideLi'><p>Shyaboi</p><p>10/24/3030</p></li>
+ <li id='sideLi'><p>Shyaboi</p><p>10/24/3030</p></li>
+ <li id='sideLi'><p>Shyaboi</p><p>10/24/3030</p></li>
+ <li id='sideLi'><p>Shyaboi</p><p>10/24/3030</p></li>
+ <li id='sideLi'><p>Shyaboi</p><p>10/24/3030</p></li>
+ <li id='sideLi'><p>Shyaboi</p><p>10/24/3030</p></li>
+ <li id='sideLi'><p>Shyaboi</p><p>10/24/3030</p></li>
+ <li id='sideLi'><p>Shyaboi</p><p>10/24/3030</p></li>
+
 
  
 </ul>

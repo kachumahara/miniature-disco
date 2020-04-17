@@ -1,8 +1,8 @@
 .sidenav {
   height: 100%;
-  width: 160px;
+  width: calc(20vh + 0.5vmin);
   position: fixed;
-  z-index: 1;
+  z-index: 0;
   top: 0;
   right: 0;
  
@@ -14,14 +14,16 @@
 }
 
 .sidenav ul {
+    left: -3vh;
+    float: left;
   list-style-type: none;
   text-align: left;
   position: relative;
   background-color: aquamarine;
   top: 35vh;
-  padding: calc(2.5vh + 0.5vmin);
+  padding: calc(1.5vh + 0.5vmin);
   text-decoration: none;
-  font-size: calc(2.7vh + 0.5vmin);
+  font-size: calc(2vh + 0.5vmin);
   color: #818181;
   display: block;
   -webkit-box-shadow: 0px 2px 9px 5px rgba(41, 41, 40, 1);
@@ -35,9 +37,10 @@
 }
 
 #sideLi{
+  width: calc(20vh + 0.5vmin);
+
     position: relative;
     left: 0;
-    width: calc(333vh + 0.5vmin);
     padding-bottom: 4vh;
     margin: calc(.5vh + 0.5vmin);
     padding: calc(.0vh + 0.5vmin);
