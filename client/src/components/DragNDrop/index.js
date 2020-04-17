@@ -8,6 +8,7 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import API from "../../utils/API";
+import { useAuth0 } from "../../utils/auth0Provider";
 // import uuid from "uuid/v4";
 // const { v4: uuidv4 } = require("uuid");
 // uuidv4();
@@ -16,7 +17,7 @@ function DragNDrop() {
   /// using UUID, how to integrate that to backend(Mongodb). These are the projects(items) we are going to drag around.
 
   //// ajax call to retrieve data from seed (Task)
-
+  const {getTokenSilently} = useAuth0();
   const [tasks, setTasks] = useState([]);
   // const [formObject, setFormObject] = useState({})
 
@@ -24,8 +25,9 @@ function DragNDrop() {
     loadTasks();
   }, []);
 
-  function loadTasks() {
-    API.getTasks()
+  async function loadTasks() {
+    const token = await getTokenSilently();
+    API.getTasks(token)
       .then((res) => {
         setTasks(res.data);
         setColumns({

@@ -2,6 +2,7 @@ import "./style.css";
 // const db = require("../../models/task");
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
+import { useAuth0 } from "../../utils/auth0Provider";
 import uuid from "uuid/v4";
 const { v4: uuidv4 } = require("uuid");
 uuidv4();
@@ -10,6 +11,7 @@ uuidv4();
 
 //// ajax call to retrieve data from seed (Task)
 function DueDate() {
+  const {getTokenSilently} = useAuth0();
   const [tasks, setTasks] = useState([
 //  console.log(title)
   ]);
@@ -18,8 +20,9 @@ function DueDate() {
     loadTasks();
   }, []);
 
-  function loadTasks() {
-    API.getTasks()
+  async function loadTasks() {
+    const token = await getTokenSilently();
+    API.getTasks(token)
       .then((res) => {
 
         // info = res.data
