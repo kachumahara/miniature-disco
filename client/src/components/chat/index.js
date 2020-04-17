@@ -5,9 +5,8 @@ import {useAuth0} from "../../utils/auth0Provider";
 import React, { Fragment } from "react";
 import UserInfo from "../../components/userinfo";
 import Name from "../../components/Name/";
-    
 
-console.log({Name})
+console.log(useAuth0)
 
 class Chat extends React.Component {
 
@@ -51,7 +50,7 @@ class Chat extends React.Component {
                 ]
             })
             this.socket.emit('message', message)
-            this.socket.emit('name', Name)
+            // this.socket.emit('name', user)
 
         }
 

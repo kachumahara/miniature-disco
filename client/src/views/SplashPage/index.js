@@ -4,14 +4,22 @@ import './style.css';
 
 
 const Splash = () => {
+
   const {isAuthenticated, loading, loginWithPopup, logout, user} = useAuth0();
   if (loading || !user) {
-    return <div>Loading...</div>;
+      return <div>Loading...<button id="signIn" onClick={
+      () => loginWithPopup()
+    }>Sign In</button>;
+  </div>
+  }
+
+  if (isAuthenticated == true) {
+      alert('nice')
   }
 
   return (
     <Fragment>
-        <div>
+        {/* <div id='splash'>
         <div id="signInOut" className="nav-item">
                             {
                             !isAuthenticated && !loading ? (
@@ -24,7 +32,7 @@ const Splash = () => {
                                 }>Sign Out</button>
                             )
                         } </div>
-                        </div>
+                        </div> */}
     </Fragment>
   );
 };

@@ -27,9 +27,9 @@ function App() {
     return <div>Loading...</div>;
   }
   return (
+<Splash>
     <Router history={history}>
       <Navbar />
-<Splash />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/tasks/add" component={AddTask} />
@@ -39,6 +39,7 @@ function App() {
       </Switch>
       <DragNDrop />
     </Router>
+    </Splash>
   );
 }
 
