@@ -3,23 +3,23 @@ const jwksRsa = require("jwks-rsa");
 
 // Set up Auth0 configuration
 const authConfig = {
-    domain: "dev-b5bcy0hn.auth0.com",
-    audience: "stscope.com"
-  };
+  domain: "dev-b5bcy0hn.auth0.com",
+  audience: "https://strategy-scope.herokuapp.com/",
+};
 
 // Define middleware that validates incoming bearer tokens
 // using JWKS from YOUR_DOMAIN
 const checkJwt = jwt({
-    secret: jwksRsa.expressJwtSecret({
-      cache: true,
-      rateLimit: true,
-      jwksRequestsPerMinute: 5,
-      jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`
-    }),
-  
-    audience: authConfig.audience,
-    issuer: `https://${authConfig.domain}/`,
-    algorithm: ["RS256"]
-  });
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`,
+  }),
 
-  module.exports = checkJwt;
+  audience: authConfig.audience,
+  issuer: `https://${authConfig.domain}/`,
+  algorithm: ["RS256"],
+});
+
+module.exports = checkJwt;
