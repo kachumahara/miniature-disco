@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import { useAuth0 } from "../../utils/auth0Provider";
-import { Link, Router, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PopButt from "./popup"
 // import PopButt2 from "./popup2";
 

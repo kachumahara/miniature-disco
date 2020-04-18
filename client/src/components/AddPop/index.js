@@ -1,6 +1,5 @@
 import React from 'react';  
 import './style.css';  
-import Chat from '../chat';
 import AddTask from '../../views/AddTask/AddTask';
 
 

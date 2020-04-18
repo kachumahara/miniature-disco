@@ -47,7 +47,7 @@ function DragNDrop() {
       })
       .catch((err) => console.log(err));
   }
-  console.log(tasks);
+  // console.log(tasks);
   // TO DO: STRUCTURE THE RES(data), making a const and function for ItemsFrom back end and columesfrom back end.
 
   // /// Creating Columns for tasks columns
@@ -110,7 +110,7 @@ function DragNDrop() {
 
   const [columns, setColumns] = useState(columnsFromBackend);
 
-  console.log("Columns", columns);
+  // console.log("Columns", columns);
 
   return (
     <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
@@ -145,7 +145,7 @@ function DragNDrop() {
                         }}
                       >
                         {column.tasks.map((task, index) => {
-                          console.log(task);
+                          // console.log(task);
                           return (
                             <Draggable
                               key={task._id}
