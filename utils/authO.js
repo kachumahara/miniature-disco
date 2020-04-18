@@ -4,7 +4,7 @@ const jwksRsa = require("jwks-rsa");
 // Set up Auth0 configuration
 const authConfig = {
   domain: "dev-b5bcy0hn.auth0.com",
-  audience: "strategy-scope.herokuapp.com",
+  audience: "stscope.com",
 };
 
 // Define middleware that validates incoming bearer tokens
