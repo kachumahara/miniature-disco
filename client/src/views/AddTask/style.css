@@ -18,6 +18,8 @@ h3{
 .form-control{
     font-weight: bold;
     color: black;
+    width: 60%;
+    margin-left: 22%;
 }
 .buttons {
     margin-left: 41%;
