@@ -16,8 +16,7 @@ import Profile from "../src/views/Profile/Profile";
 // import ViewTasks from "../src/views/ViewTasks/ViewTasks";
 // import Project from "./views/Project";
 
-import Popup from "./components/popup";
-import logo from "./components/images/logo7.png";
+
 import Splash from "./views/SplashPage/index";
 import DueDate from "./common/DueDate/index";
 

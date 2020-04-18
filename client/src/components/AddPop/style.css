@@ -1,3 +1,7 @@
+.div.col{
+  background: #000;
+}
+
 .popup2 {  
     text-align: center;
 
@@ -16,9 +20,73 @@
 
 
 
-  #popButt2{
-    color: azure;
-    background: linear-gradient(90deg, rgba(28,23,105,1) 0%, rgba(28,28,171,1) 35%, rgba(212,86,207,1) 59%, rgba(146,237,255,1) 100%);
+  #popAdd {
+    font-family: "Roboto", sans-serif;
+  
+    font-size: calc(1.1vh + 0.5vmin);
+    width: 55vh;
+    height:85vh;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: fixed;
+    z-index: 5;
+    border-radius: 10px;
+  }
+  
+  #popAdd:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  #popAdd:active {
+    color: #000;
+  }
+  
+  #popAdd:active:after {
+    background: transparent;
+  }
+  
+  #popAdd:hover:before {
+    opacity: 1;
+  }
+  
+  #popAdd:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
 
   /* text-align: center;
   grid-auto-rows: auto;
@@ -41,4 +109,4 @@
     -moz-box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.75);
     box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.75);
     font-size: calc(3vh + .5vmin); */
-  }
+  

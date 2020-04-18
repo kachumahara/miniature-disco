@@ -1,10 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useAuth0 } from "../../utils/auth0Provider";
 import "./style.css";
 import logo from "../../components/images/logo6.png";
 
 const Splash = () => {
-  const { isAuthenticated, loading, loginWithPopup, logout, user } = useAuth0();
+  const { isAuthenticated, loading, loginWithPopup,  user } = useAuth0();
   if (loading || !user) {
     return (
       <div id="main">

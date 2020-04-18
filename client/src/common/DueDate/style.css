@@ -29,7 +29,6 @@
   list-style-type: none;
   text-align: left;
   position: relative;
-  background-color: aquamarine;
   top: 35vh;
   padding: calc(1.5vh + 0.5vmin);
   text-decoration: none;
@@ -47,8 +46,10 @@
 }
 
 #sideLi{
-  width: calc(20vh + 0.5vmin);
-
+  word-wrap: break-word;
+  font-size: calc(1.1vh + .5vmin);
+  overflow: hidden;
+  width: calc(18vh + 0.5vmin);
     position: relative;
     left: 0;
     padding-bottom: 4vh;

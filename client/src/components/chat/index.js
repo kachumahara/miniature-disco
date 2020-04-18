@@ -2,7 +2,7 @@ import "./style.css";
 
 import io from "socket.io-client";
 import { useAuth0 } from "../../utils/auth0Provider";
-import React, { Fragment } from "react";
+import React from "react";
 import UserInfo from "../../components/userinfo";
 import Name from "../../components/Name/";
 

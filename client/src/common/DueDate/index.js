@@ -3,7 +3,6 @@ import "./style.css";
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import { useAuth0 } from "../../utils/auth0Provider";
-import uuid from "uuid/v4";
 const { v4: uuidv4 } = require("uuid");
 uuidv4();
 
@@ -11,10 +10,8 @@ uuidv4();
 
 //// ajax call to retrieve data from seed (Task)
 function DueDate() {
-  const {getTokenSilently} = useAuth0();
-  const [tasks, setTasks] = useState([
-//  console.log(title)
-  ]);
+  const { getTokenSilently } = useAuth0();
+  const [tasks, setTasks] = useState([]);
   // const [formObject, setFormObject] = useState({})
   useEffect(() => {
     loadTasks();
@@ -24,18 +21,32 @@ function DueDate() {
     const token = await getTokenSilently();
     API.getTasks(token)
       .then((res) => {
-
-        // info = res.data
-
         setTasks(res.data);
       })
+
       .catch((err) => console.log(err));
   }
+  const renderInfo = () => {
+    if (tasks.length !== 0) {
+      return tasks.map((tasks) => (
+        <li id="sideLi">
+          <div>
+            <h4>{tasks.title}</h4>
+          </div>{" "}
+          <div>Deadline Date: </div>
+          <div>{tasks.due_date.slice(2, 10)}</div>
+        </li>
+      ));
+    } else {
+      return <h1>Loading...</h1>;
+    }
+  };
 
   return (
     <div className="sidenav">
       <ul>
-        <li id="sideLi">Shyaboi</li>
+        {renderInfo()}
+        <li></li>
       </ul>
     </div>
   );
