@@ -10,7 +10,7 @@
     "client": "cd client && yarn start",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && yarn",
-    "build": "cd client && yarn build",
+    "build": "yarn build",
     "heroku-postbuild": "yarn build"
   },
   "author": "",
