@@ -17,7 +17,7 @@ function DragNDrop() {
   /// using UUID, how to integrate that to backend(Mongodb). These are the projects(items) we are going to drag around.
 
   //// ajax call to retrieve data from seed (Task)
-  const {getTokenSilently} = useAuth0();
+  const { getTokenSilently } = useAuth0();
   const [tasks, setTasks] = useState([]);
   // const [formObject, setFormObject] = useState({})
 
@@ -70,7 +70,8 @@ function DragNDrop() {
     },
   };
   // Drag functions
-  const onDragEnd = (result, columns, setColumns) => {
+  async function onDragEnd(result, columns, setColumns) {
+    const token = await getTokenSilently();
     if (!result.destination) return;
     const { source, destination } = result;
     if (source.droppableId !== destination.droppableId) {
@@ -79,18 +80,24 @@ function DragNDrop() {
       const sourceItems = [...sourceColumn.tasks];
       const destItems = [...destColumn.tasks];
       const [removed] = sourceItems.splice(source.index, 1);
+      const selectedTask = sourceColumn.tasks[source.index]._id;
       destItems.splice(destination.index, 0, removed);
-      setColumns({
-        ...columns,
-        [source.droppableId]: {
-          ...sourceColumn,
-          tasks: sourceItems,
-        },
-        [destination.droppableId]: {
-          ...destColumn,
-          tasks: destItems,
-        },
-      });
+      API.updateTask(selectedTask, destination.droppableId, token).then(
+        (res) => {
+          setTasks(res.data);
+          setColumns({
+            ...columns,
+            [source.droppableId]: {
+              ...sourceColumn,
+              tasks: sourceItems,
+            },
+            [destination.droppableId]: {
+              ...destColumn,
+              tasks: destItems,
+            },
+          });
+        }
+      );
     } else {
       const column = columns[source.droppableId];
       const copiedItems = [...column.tasks];
@@ -104,7 +111,7 @@ function DragNDrop() {
         },
       });
     }
-  };
+  }
 
   // The DragDropContext (Container) has children (Droppable (OnDrag) and Draggable). Its the wrapper
 

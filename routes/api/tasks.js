@@ -3,19 +3,15 @@ const taskController = require("../../controllers/taskController");
 const authRoute = require("../../utils/authO");
 
 // matches with /api/tasks
-router
-  .route("/")
-  .get(authRoute, taskController.findAll)
+router.route("/").get(authRoute, taskController.findAll);
 
 // matches with /api/tasks/add
-router
-  .route("/add")
-  .post(taskController.create);
+router.route("/add").post(taskController.create);
 
 // Matches with "/api/tasks/:id"
 router
   .route("/:id")
-  .get(taskController.findById)
+  .get(authRoute, taskController.findById)
   .put(taskController.update)
   .delete(taskController.remove);
 
