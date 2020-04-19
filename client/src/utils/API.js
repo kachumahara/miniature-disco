@@ -31,7 +31,11 @@ export default {
   },
 
   createTask: function (taskData) {
-    return axios.post("/api/tasks/add", taskData);
+    return axios.post("/api/tasks/add", taskData, {
+      headers: { 
+        authorization: `Bearer ${token}`
+      }
+    });
   },
 
   updateTask: function (id) {

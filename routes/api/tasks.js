@@ -10,7 +10,7 @@ router
 // matches with /api/tasks/add
 router
   .route("/add")
-  .post(taskController.create);
+  .post(authRoute, taskController.create);
 
 // Matches with "/api/tasks/:id"
 router
