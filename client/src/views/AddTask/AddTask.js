@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./style.css";
 import API from "../../utils/API";
+import { useAuth0 } from "../../utils/auth0Provider";
 import { Link } from "react-router-dom";
 import { Input, TextArea, FormBtn } from "../../components/Form/index";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 function AddTask() {
+  const { getTokenSilently } = useAuth0();
 
 //   components initial state
   const [formObject, setFormObject] = useState({})
@@ -26,25 +28,25 @@ function AddTask() {
     }
 
 // when form is submitted use API.createTask method to save task data
-    function handleFormSubmit(e){
+    async function handleFormSubmit(e){
         e.preventDefault();
-        console.log(formDate)
         if(formObject.title && formObject.description && formDate) {
-            API.createTask({
+          const token = await getTokenSilently();
+            API.createTask( {
                 title: formObject.title,
                 description: formObject.description,
                 due_date: formDate
-            }).then(function(){
+            }, token).then(function(){
+              alert('Task Submitted!');
               //reset the state for the forms after data is passed
               setFormObject({"title":"","description":""});
             })
             .catch(err => console.log(err));
-            alert('Task Submitted!')
         }
     }
 
   return (
-    <div id="popAdd" className="container mt-4">
+    <div className="container mt-4">
       <div className="row">
         <div className="col">
           <h1>Add a New Task</h1>

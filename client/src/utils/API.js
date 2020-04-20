@@ -26,12 +26,20 @@ export default {
     return axios.get("/api/tasks/" + id);
   },
 
-  deleteTasks: function (id) {
-    return axios.delete("/api/tasks/" + id);
+  deleteTasks: function (id, token) {
+    return axios.delete("/api/tasks/" + id, token,{
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    });
   },
 
-  createTask: function (taskData) {
-    return axios.post("/api/tasks/add", taskData);
+  createTask: function (taskData, token) {
+    return axios.post("/api/tasks/add", taskData, {
+      headers: { 
+        authorization: `Bearer ${token}`
+      }
+    });
   },
 
   updateTask: function (id, status, token) {

@@ -6,13 +6,15 @@ const authRoute = require("../../utils/authO");
 router.route("/").get(authRoute, taskController.findAll);
 
 // matches with /api/tasks/add
-router.route("/add").post(taskController.create);
+router
+  .route("/add")
+  .post(authRoute, taskController.create);
 
 // Matches with "/api/tasks/:id"
 router
   .route("/:id")
   .get(authRoute, taskController.findById)
   .put(taskController.update)
-  .delete(taskController.remove);
+  .delete(authRoute, taskController.remove);
 
 module.exports = router;

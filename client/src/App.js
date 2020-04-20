@@ -18,7 +18,7 @@ import Profile from "../src/views/Profile/Profile";
 
 
 import Splash from "./views/SplashPage/index";
-import DueDate from "./common/DueDate/index";
+// import DueDate from "./common/DueDate/index";
 
 function App() {
   const { loading, isAuthenticated } = useAuth0();
@@ -31,14 +31,11 @@ function App() {
 
   return (
     <Router history={history}>
-      <DueDate />
+      {/* <DueDate /> */}
       <Navbar />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/tasks/add" component={AddTask} />
-        {/* <Route path="/tasks/:id" component={ViewTasks}/> */}
-        <Route path="/profile" component={Profile} />{" "}
-        {/* <Route path="/project" component={Project} /> */}
+        <PrivateRoute exact path="/" component={Home} />
+        <PrivateRoute exact path="/tasks/add" component={AddTask} />
         <PrivateRoute path="/profile" component={Profile}/>
         <PrivateRoute path="/tasks/add" component={AddTask} />
         {/* <PrivateRoute path="/tasks/:id" component={ViewTasks}/> */}
