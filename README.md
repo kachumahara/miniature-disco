@@ -1,71 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Strategy-Scope
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+clone github repo
 
+run yarn inside terminal in repo
 
-### `npm start`fds
+run yarn start inside terminal
 
+## Technologies Used
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Auth0, Axios, Express, Mongoose, React, React Calendar, React Beautiful Drag n Drop, React Bootstrap, React Router, React Scripts, Socket IO.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Usage
 
-### `npm test`
+This project is designed to combine a communication tool with a Kanban tool. In order to increase efficiency among teams, this project aims to reduce the need to switch between applications and allow teams to use a one stop shop for their project needs.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users will be prompted with a signin popup window using Auth0. Once users have successfully signed in using social media, or a local db account, they will be taken to the project splash page. Here they will see a Kanban with various tasks added by team members complete with title and description. These tasks can be moved around the columns which are labeled to-do, in progress, and done. When they are moved in the columns, the tasks are updated in the database so it persists through reloads.
 
-### `npm run build`
+Additionally users will see a deadline bar to the right of the Kanban. This feature sorts all the tasks by deadline date and allows users to quickly see what needs to be completed and when that task is due.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Finally, this project features a chat system that is specific to the project. Users can click the chat button and speak with team members without having to switch applications.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Project Images
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![strategy scope sign in logo](images\splashsignin.png)
+![strategy scope kanban page](images\kanban.png)
+![strategy scope add task prompt](images\addtask.png)
+![strategy scope chat system](images\chattychat.png)
 
-### `npm run eject`
+## Project Status
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This project achieves it's MVP, but there are many goals for this project in the future.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Features we'd like to implement:
+The ability to have multiple projects, each with their own tasks, deadline bar, and chat system.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The ability to implement a video chat system, combining project management tools, chat, and video in one application.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Credits
 
-## Learn More
+Collaborator(s) - Megan Coppins, Ian Sears, Kenneth Achumahara, Justin Kellogg
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://justinkellogg89.github.io/miniature-disco
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-ok
+http://strategy-scope.herokuapp.com/
