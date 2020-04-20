@@ -17,6 +17,6 @@ router
   .route("/:id")
   .get(taskController.findById)
   .put(taskController.update)
-  .delete(taskController.remove);
+  .delete(authRoute, taskController.remove);
 
 module.exports = router;

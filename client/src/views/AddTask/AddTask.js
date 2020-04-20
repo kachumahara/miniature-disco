@@ -32,11 +32,11 @@ function AddTask() {
         e.preventDefault();
         if(formObject.title && formObject.description && formDate) {
           const token = await getTokenSilently();
-            API.createTask((token), {
+            API.createTask( {
                 title: formObject.title,
                 description: formObject.description,
                 due_date: formDate
-            }).then(function(){
+            }, token).then(function(){
               alert('Task Submitted!');
               //reset the state for the forms after data is passed
               setFormObject({"title":"","description":""});
