@@ -24,10 +24,10 @@ Finally, this project features a chat system that is specific to the project. Us
 
 ## Project Images
 
-![strategy scope sign in logo](images\splashsignin.png)
-![strategy scope kanban page](images\kanban.png)
-![strategy scope add task prompt](images\addtask.png)
-![strategy scope chat system](images\chattychat.png)
+![strategy scope sign in logo](https://live.staticflickr.com/65535/49798835757_c7a8fbee0e_b.jpg)
+![strategy scope kanban page](https://live.staticflickr.com/65535/49797976168_b37b2d6b5b_b.jpg)
+![strategy scope add task prompt](https://live.staticflickr.com/65535/49797976228_1b3677582b_b.jpg)
+![strategy scope chat system](https://live.staticflickr.com/65535/49798835812_a958c4363e_b.jpg)
 
 ## Project Status
 
