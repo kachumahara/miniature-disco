@@ -16,9 +16,9 @@ export default {
 
   getTasks: function (token) {
     return axios.get("/api/tasks", {
-      headers: { 
-        authorization: `Bearer ${token}`
-      }
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
     });
   },
 
@@ -42,8 +42,16 @@ export default {
     });
   },
 
-  updateTask: function (id) {
-    return axios.put("/api/tasks/" + id);
+  updateTask: function (id, status, token) {
+    return axios.put(
+      "/api/tasks/" + id,
+      { status },
+      {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }
+    );
   },
 
   getDeadlines: function () {
