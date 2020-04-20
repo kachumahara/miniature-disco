@@ -3,8 +3,8 @@ const jwksRsa = require("jwks-rsa");
 
 // Set up Auth0 configuration
 const authConfig = {
-  domain: "dev-nwi6y2ua.auth0.com",
-  audience: "strategyscopeapi",
+  domain: process.env.AUTHO_DOMAIN,
+  audience: process.env.AUTHO_AUDIENCE,
 };
 
 // Define middleware that validates incoming bearer tokens
