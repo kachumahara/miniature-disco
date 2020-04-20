@@ -13,14 +13,12 @@ function AddTask() {
 //   components initial state
   const [formObject, setFormObject] = useState({})
   const [formDate, setDate] = useState(new Date())
-  const [formMessage, setMessage] = useState("")
 
 
 //   update component state when user types in input field
     function handleInputChange(e){
         const { name, value } =
         e.target;
-        setMessage("");
         setFormObject({...formObject, [name]: value})
     };
 
@@ -39,9 +37,8 @@ function AddTask() {
                 description: formObject.description,
                 due_date: formDate
             }, token).then(function(){
-              // alert('Task Submitted!');
+              alert('Task Submitted!');
               //reset the state for the forms after data is passed
-              setMessage("Task Saved!");
               setFormObject({"title":"","description":""});
             })
             .catch(err => console.log(err));
@@ -81,9 +78,6 @@ function AddTask() {
                 />
               </div>
               <div className="buttons">
-                <div className="message">
-                  <h4>{formMessage}</h4>
-                </div>
                 <FormBtn
                 disabled={!(formObject.title && formObject.description)}
                 onClick={handleFormSubmit}
