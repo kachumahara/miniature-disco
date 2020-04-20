@@ -29,7 +29,8 @@
   list-style-type: none;
   text-align: left;
   position: relative;
-  top: 35vh;
+  /* top: 35vh; */
+  top: 15vh;
   padding: calc(1.5vh + 0.5vmin);
   text-decoration: none;
   font-size: calc(2vh + 0.5vmin);

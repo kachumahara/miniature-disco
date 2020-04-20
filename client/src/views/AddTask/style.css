@@ -3,6 +3,7 @@ h1{
 }
 input {
     margin: 0;
+    box-shadow: none;
 }
 .link{
     border: none;

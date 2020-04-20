@@ -51,12 +51,12 @@ function DragNDrop() {
   }
 
 // }
-    async function deleteTask(id){
-      const token = await getTokenSilently();
-      API.deleteTasks(id, token)
-      .then(res => loadTasks())
-      .catch(err => console.log(err));
-      }
+    // async function deleteTask(id){
+    //   const token = await getTokenSilently();
+    //   API.deleteTasks(id, token)
+    //   .then(res => loadTasks())
+    //   .catch(err => console.log(err));
+    //   }
   // console.log(tasks);
   // TO DO: STRUCTURE THE RES(data), making a const and function for ItemsFrom back end and columesfrom back end.
 
@@ -132,7 +132,7 @@ function DragNDrop() {
   return (
     <div>
     <DueDate />
-    <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
+    <div style={{ display: "flex", justifyContent: "center", height: "100%", marginRight: "10%", marginTop: "3%", }}>
       <DragDropContext
         onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
       >
@@ -189,7 +189,6 @@ function DragNDrop() {
                                       ...provided.draggableProps.style,
                                     }}
                                   >
-                                    <button onClick={() => deleteTask(task._id)}><strong>X</strong></button>
                                     <h5><strong>{task.title}:</strong></h5>
                                     <div>
                                       {task.description}
