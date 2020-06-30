@@ -46,4 +46,4 @@ Collaborator(s) - Megan Coppins, Ian Sears, Kenneth Achumahara, Justin Kellogg
 
 https://justinkellogg89.github.io/miniature-disco
 
-http://strategy-scope.herokuapp.com/
+https://strategyscope.herokuapp.com/
